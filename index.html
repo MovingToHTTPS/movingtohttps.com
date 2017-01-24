@@ -79,34 +79,22 @@
                         <div class="filter-block">
                             <label for="platform">Platform</label>
                             <br>
-                            <select name="platform" id="platform" v-model="platform">
-                                <option>Wordpress</option>
-                                <option>Joomla</option>
-                                <option>Drupal</option>
-                                <option>Wix</option>
-                                <option>Magento</option>
-                                <option>Shopify</option>
-                                <option value="">Other</option>
+                            <select tabindex="1" name="platform" id="platform" v-model="platform">
+                                <option v-for="(text, value) in options.platform" v-bind:value="value" v-text="text"></option>
                             </select>
                         </div>
                         <div class="filter-block">
                             <label for="hosting">Hosting</label>
                             <br>
-                            <select name="hosting" id="hosting" v-model="hosting">
-                                <option>GoDaddy</option>
-                                <option>Heart Internet</option>
-                                <option>Dedicated Servers</option>
-                                <option>Cloudflare</option>
-                                <option value="">Other hosting</option>
+                            <select tabindex="1" name="hosting" id="hosting" v-model="hosting">
+                                <option v-for="(text, value) in options.hosting" v-bind:value="value" v-text="text"></option>
                             </select>
                         </div>
                         <div class="filter-block">
                             <label for="control">Control</label>
                             <br>
-                            <select name="control" id="control" v-model="control">
-                                <option value="max">I have full code access &amp; can install plugins etc if needed</option>
-                                <option value="med">I have access to page content only</option>
-                                <option value="min">I have minimal access</option>
+                            <select tabindex="1" name="control" id="control" v-model="control">
+                                <option v-for="(text, value) in options.control" v-bind:value="value" v-text="text"></option>
                             </select>
                         </div>
                     </div>
@@ -140,7 +128,7 @@
     </div>
 
     <!-- js imports -->
-    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
     <script src="/js/app.js"></script>
 
     <!-- Google Analytics -->
