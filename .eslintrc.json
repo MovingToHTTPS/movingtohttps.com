@@ -1,0 +1,12 @@
+{
+    "rules": {
+        "semi": 2
+    },
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "Vue": false
+    },
+    "extends": "eslint:recommended"
+}
