@@ -50,8 +50,9 @@ new Vue({
         // parse any url params
         var urlParams = {};
         location.search.substring(1).split('&').forEach(function (chunk) {
-            var bits = chunk.split('=', 2);
-            urlParams[decodeURIComponent(bits[0])] = decodeURIComponent(bits[1]);
+            var bits = chunk.split('=', 2),
+                key = decodeURIComponent(bits[0]).toLowerCase();
+            urlParams[key] = decodeURIComponent(bits[1]).toLowerCase();
         });
 
         // for any url params set, if it's an available option then set it
