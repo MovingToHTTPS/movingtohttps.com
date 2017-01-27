@@ -6,7 +6,7 @@ body {
     background: #fef7e1;
     background: linear-gradient(to bottom, #fef7e1 0%, #ffe9b0 100%);
 }
-h1 {
+h1, h2, h3 {
     font-family: 'Noto Sans', sans-serif;
     color: #62493c;
 }

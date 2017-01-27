@@ -16,16 +16,20 @@ new Vue({
                 'wix': 'Wix',
                 'magento': 'Magento',
                 'shopify': 'Shopify',
-                '': 'Other',
+                '': 'Other'
             },
             hosting: {
                 'godaddy': 'GoDaddy',
+                'hostgator': 'HostGator',
+                'siteground': 'SiteGround',
+                '1and1': '1&1',
+                'heart-internet': 'Heart Internet',
                 'dedicated-server': 'Dedicated Server',
                 'cloudflare': 'Cloudflare',
                 '': 'Other'
             },
             control: {
-                'max': 'I have full code access &amp; can install plugins etc if needed',
+                'max': 'I have full code access & can install plugins etc if needed',
                 'med': 'I have access to page content only',
                 'min': 'I have minimal access'
             }
