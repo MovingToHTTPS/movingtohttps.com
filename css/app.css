@@ -138,6 +138,7 @@ footer {
 /* filters */
 .filters {
     display: flex;
+    align-items: flex-end;
 }
 .filter-block {
     flex: 1;
