@@ -33,6 +33,12 @@ new Vue({
                 'med': 'I have access to page content only',
                 'min': 'I have minimal access'
             }
+        },
+        showArea: {
+            preMove: true,
+            duringMove: true,
+            postMove: true,
+            aboveAndBeyond: true
         }
     },
 

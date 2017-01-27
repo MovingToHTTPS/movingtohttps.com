@@ -107,8 +107,10 @@
 
                 <!-- Migration process -->
                 <main>
-                    <h2>Pre move</h2>
-                    <ol>
+
+                    <a class="toggle-section print-hidden" @click="showArea.preMove = !showArea.preMove">[Toggle]</a>
+                    <h2 v-bind:class="showArea.preMove ? '' : 'toggle-hidden-section print-hidden'">Pre move</h2>
+                    <ol v-show="showArea.preMove">
                         <li>
                             <h3>Select an SSL certificate</h3>
                             <p>There are 3 types of SSL/TLS certificates you can setup on your site:</p>
@@ -128,10 +130,11 @@
                                 <br>We've listed it later on as part of the migration flow, but feel free to skip ahead to this step in order to ease the migration later on.
                             </p>
                         </li>
-
                     </ol>
-                    <h2>The move</h2>
-                    <ol>
+
+                    <a class="toggle-section print-hidden" @click="showArea.duringMove = !showArea.duringMove">[Toggle]</a>
+                    <h2 v-bind:class="showArea.duringMove ? '' : 'toggle-hidden-section print-hidden'">The move</h2>
+                    <ol v-show="showArea.duringMove">
                         <li>
                             <h3></h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis sequi atque, sunt laudantium eos quibusdam, vitae aliquid perferendis libero enim iusto labore voluptates! Maxime maiores eius consequatur similique deleniti.</p>
@@ -142,9 +145,9 @@
                         </li>
                     </ol>
 
-                    <h2>Post move</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati mollitia, distinctio vitae dolorum provident molestias tempora. Qui mollitia ex, dolor a nihil. Pariatur sed nemo, ullam aut odit repellendus fugiat.</p>
-                    <ol>
+                    <a class="toggle-section print-hidden" @click="showArea.postMove = !showArea.postMove">[Toggle]</a>
+                    <h2 v-bind:class="showArea.postMove ? '' : 'toggle-hidden-section print-hidden'">Post move</h2>
+                    <ol v-show="showArea.postMove">
                         <li>
                             <h3></h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis sequi atque, sunt laudantium eos quibusdam, vitae aliquid perferendis libero enim iusto labore voluptates! Maxime maiores eius consequatur similique deleniti.</p>
@@ -155,8 +158,9 @@
                         </li>
                     </ol>
 
-                    <h2>Going above and beyond</h2>
-                    <ol>
+                    <a class="toggle-section print-hidden" @click="showArea.aboveAndBeyond = !showArea.aboveAndBeyond">[Toggle]</a>
+                    <h2 v-bind:class="showArea.aboveAndBeyond ? '' : 'toggle-hidden-section print-hidden'">Going above and beyond</h2>
+                    <ol v-show="showArea.aboveAndBeyond">
                         <li>
                             <h3></h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis sequi atque, sunt laudantium eos quibusdam, vitae aliquid perferendis libero enim iusto labore voluptates! Maxime maiores eius consequatur similique deleniti.</p>
