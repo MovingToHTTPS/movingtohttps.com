@@ -35,6 +35,7 @@ new Vue({
             }
         },
         showArea: {
+            outline: true,
             preMove: true,
             duringMove: true,
             postMove: true,

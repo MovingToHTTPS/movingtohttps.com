@@ -8,6 +8,8 @@ body {
 }
 h1, h2, h3 {
     font-family: 'Noto Sans', sans-serif;
+}
+h1, h2, h3, a {
     color: #62493c;
 }
 hr {
@@ -163,5 +165,12 @@ footer {
     .block {
         /* remove shadow areas */
         box-shadow: none;
+    }
+
+    /* process outline / contents */
+    /* on print/pdf, make these links look more like titles */
+    .process-outline a {
+        color: inherit;
+        text-decoration: inherit;
     }
 }
