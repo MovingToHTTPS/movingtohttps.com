@@ -133,15 +133,27 @@
                     </ol>
 
                     <a class="toggle-section print-hidden" @click="showArea.duringMove = !showArea.duringMove">[Toggle]</a>
-                    <h2 v-bind:class="showArea.duringMove ? '' : 'toggle-hidden-section print-hidden'">The move</h2>
+                    <h2 v-bind:class="showArea.duringMove ? '' : 'toggle-hidden-section print-hidden'">Moving day</h2>
                     <ol v-show="showArea.duringMove">
                         <li>
-                            <h3></h3>
+                            <h3>Install the certificate</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis sequi atque, sunt laudantium eos quibusdam, vitae aliquid perferendis libero enim iusto labore voluptates! Maxime maiores eius consequatur similique deleniti.</p>
                         </li>
                         <li>
-                            <h3></h3>
+                            <h3>Check the certificate</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A et nam dolorem expedita accusantium, temporibus magni dolores at vitae perspiciatis alias minima repudiandae porro illo maxime. Nam reprehenderit earum placeat!</p>
+                        </li>
+                        <li>
+                            <h3>Fix mixed content</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique laboriosam, ullam impedit soluta unde aut explicabo, minus excepturi, ipsam eius nesciunt optio tempore tenetur recusandae iure nostrum pariatur sint non.</p>
+                        </li>
+                        <li>
+                            <h3>Setup HTTP to HTTPS redirect</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique laboriosam, ullam impedit soluta unde aut explicabo, minus excepturi, ipsam eius nesciunt optio tempore tenetur recusandae iure nostrum pariatur sint non.</p>
+                        </li>
+                        <li>
+                            <h3>Update 3rd party analytics &amp; other links</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique laboriosam, ullam impedit soluta unde aut explicabo, minus excepturi, ipsam eius nesciunt optio tempore tenetur recusandae iure nostrum pariatur sint non.</p>
                         </li>
                     </ol>
 
@@ -149,11 +161,11 @@
                     <h2 v-bind:class="showArea.postMove ? '' : 'toggle-hidden-section print-hidden'">Post move</h2>
                     <ol v-show="showArea.postMove">
                         <li>
-                            <h3></h3>
+                            <h3>Wait a week or so...</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis sequi atque, sunt laudantium eos quibusdam, vitae aliquid perferendis libero enim iusto labore voluptates! Maxime maiores eius consequatur similique deleniti.</p>
                         </li>
                         <li>
-                            <h3></h3>
+                            <h3>Impliment HSTS to make sure users always see the SSL version</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A et nam dolorem expedita accusantium, temporibus magni dolores at vitae perspiciatis alias minima repudiandae porro illo maxime. Nam reprehenderit earum placeat!</p>
                         </li>
                     </ol>
@@ -162,14 +174,20 @@
                     <h2 v-bind:class="showArea.aboveAndBeyond ? '' : 'toggle-hidden-section print-hidden'">Going above and beyond</h2>
                     <ol v-show="showArea.aboveAndBeyond">
                         <li>
-                            <h3></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis sequi atque, sunt laudantium eos quibusdam, vitae aliquid perferendis libero enim iusto labore voluptates! Maxime maiores eius consequatur similique deleniti.</p>
+                            <h3>Update internal links in pages, emails etc.</h3>
+                            <p>Even with a redirect from HTTP to HTTPS setup, it's best to minimise temp HTTP redirects as these can still lead to exposing what the user was doing.</p>
                         </li>
                         <li>
-                            <h3></h3>
+                            <h3>Aim for A+ on SSLLabs</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A et nam dolorem expedita accusantium, temporibus magni dolores at vitae perspiciatis alias minima repudiandae porro illo maxime. Nam reprehenderit earum placeat!</p>
+                        </li>
+                        <li>
+                            <h3>Iron out other similar security actions</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A et nam dolorem expedita accusantium, temporibus magni dolores at vitae perspiciatis alias minima repudiandae porro illo maxime. Nam reprehenderit earum placeat!</p>
                         </li>
                     </ol>
+
+                    <p><small>Disclaimer: this information is provided as a resource to aide migration. Following it's advice in no way leaves the project or it's authors liable.</small></p>
 
                 </main>
 
