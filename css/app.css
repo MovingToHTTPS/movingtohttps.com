@@ -86,10 +86,10 @@ input[type="email"]:hover,
         padding-right: 15px;
     }
 }
-.owl {
+.ssowl {
     text-align: center;
 }
-.owl img {
+.ssowl img {
     width: 240px;
 }
 
@@ -102,7 +102,7 @@ footer {
 /* ===== Modules ===== */
 
 /* simple blocks */
-.owl,
+.ssowl,
 .block {
     margin: 15px;
 }
@@ -156,6 +156,7 @@ footer {
 
     /* hide a few unmeeded areas */
     .print-hidden,
+    .ssowl,
     .filters,
     .about-site,
     .newsletter,
