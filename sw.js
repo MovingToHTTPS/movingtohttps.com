@@ -31,7 +31,9 @@ self.addEventListener('fetch', function(event) {
     // not perfect, but at least keeps this up to date for now.
     event.respondWith(
         fetch(event.request).catch(function() {
-            return caches.match(event.request, { ignoreSearch: true });
+            return caches.match(event.request, {
+                ignoreSearch: true // make sure we ignore the url params as we use these to filter data on page
+            });
         })
     );
 });
