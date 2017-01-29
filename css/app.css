@@ -4,7 +4,7 @@ body {
     font-family: 'Noto Serif', serif;
     color: #444;
     background: #fef7e1;
-    background: linear-gradient(to bottom, #fef7e1 0%, #ffe9b0 100%);
+    background: linear-gradient(to bottom, #fef7e1 0%, #fec021 100%);
 }
 h1, h2, h3 {
     font-family: 'Noto Sans', sans-serif;
