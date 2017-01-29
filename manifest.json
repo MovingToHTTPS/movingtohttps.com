@@ -1,6 +1,7 @@
 {
-    "name": "Moving to HTTPS",
-    "start_url": "/index.html",
+    "name": "Moving to HTTPS Guide",
+    "short_name": "HTTPS Guide",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",

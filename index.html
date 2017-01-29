@@ -64,7 +64,7 @@
                 <div id="mc_embed_signup" class="newsletter block">
                     <form action="https://movingtohttps.us2.list-manage.com/subscribe/post?u=56c058814106f136ddb75fcb8&amp;id=c839725f83" method="post" target="_blank">
                         <div id="mc_embed_signup_scroll">
-                        <p>Join the community for updates:</p>
+                        <p><label for="mce-EMAIL">Join the community for updates:</label></p>
                         <p class="mc-field-group">
                             <input type="email" placeholder="Email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
                             <button name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe</button>
@@ -236,6 +236,17 @@
     <!-- js imports -->
     <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
     <script src="/js/app.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }).catch(function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+        });
+    });
+    }
+    </script>
 
     <!-- Google Analytics -->
     <script>
