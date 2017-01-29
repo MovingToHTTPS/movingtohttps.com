@@ -58,6 +58,10 @@
                     <p>Are you migrating your site from HTTP to HTTPS?
                         <a href="https://twitter.com/hashtag/movingtoHTTPS">#movingtoHTTPS</a></p>
                     <p>Looking to contribute? All code is available on <a href="https://github.com/MovingtoHTTPS">GithHub</a>!</p>
+
+                    <!-- Google Translate will show here -->
+                    <div id="google_translate_element"></div>
+
                 </div>
 
                 <!-- Begin MailChimp Signup Form -->
@@ -225,10 +229,14 @@
         </div>
 
         <footer class="footer">
+
+            <!-- Share links will show here -->
             <div class="addthis_inline_share_toolbox"></div>
+
             <p>
                 <small>Looking for a printed or PDF version of this page? This page is print friendly and you can normally print to PDF :)</small>
             </p>
+
         </footer>
 
     </div>
@@ -257,6 +265,18 @@
     ga('create', 'UA-90554746-1', 'auto');
     ga('send', 'pageview');
     </script>
+
+    <!-- Google Translate -->
+    <script>
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            gaTrack: true,
+            gaId: 'UA-90554746-1'
+        }, 'google_translate_element');
+    }
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <!-- AddThis sharing icons -->
     <script src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-587ff52da81ee382"></script>

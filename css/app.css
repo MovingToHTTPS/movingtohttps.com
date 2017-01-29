@@ -1,5 +1,6 @@
 
 /* ===== Base ===== */
+html { height: auto !important; /* force as google translate tries to change this */ }
 body {
     font-family: 'Noto Serif', serif;
     color: #444;
@@ -162,6 +163,7 @@ footer {
     .newsletter,
     .nav,
     .footer,
+    .skiptranslate,
     .addthis_inline_share_toolbox { display: none; }
 
     .block {
