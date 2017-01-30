@@ -19,7 +19,7 @@ self.addEventListener('install', e => {
             ])
             .then(() => self.skipWaiting());
         })
-    )
+    );
 });
 
 self.addEventListener('activate', event => {

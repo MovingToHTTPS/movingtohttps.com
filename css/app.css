@@ -15,7 +15,7 @@ h1, h2, h3, a {
 }
 hr {
     border: none;
-    border-top: 1px solid #CCC;
+    border-top: 1px solid #62493c;
     width: 80%;
     margin: 15px auto;
 }
@@ -25,7 +25,7 @@ img {
 a { cursor: pointer; }
 
 ::selection {
-    background-color: #fef7e1;
+    background-color: #fec021;
 }
 
 /* forms */
