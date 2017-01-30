@@ -29,6 +29,8 @@ Check syntax with: `eslint **/*.js`
 
 Interested to help in other ways? Get the word out by sharing the project. [#movingtoHTTPS](https://twitter.com/hashtag/movingtoHTTPS)
 
+This project is released under the [MIT License](https://mit-license.org/).
+
 ## FAQ
 
 **Why build another guide?** - Most the guides out there were great but were platform or provider specific. Also they often made assumptions about the users level of skill / control over the site. 
@@ -37,4 +39,3 @@ This guide helps by allowing you to filter the content to suit your needs.
 **Will this guide be kept up to date?** - It's a community site so feel free to contribute. I'll try to review the submissions for changes quickly so you can keep this as a reliable & up to date source.
 
 **What's with the owl?** - It's the [SSowL](https://twitter.com/theSSowL) who'll help guide you through the migration process. 
-
