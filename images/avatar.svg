@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="200"
+   viewBox="0 0 199.99999 199.99999"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="avatar.svg"
+   inkscape:export-filename="/home/andrew/projects/movingtohttps.com/images/avatar.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4561">
+      <stop
+         style="stop-color:#fec021;stop-opacity:1"
+         offset="0"
+         id="stop4563" />
+      <stop
+         style="stop-color:#fef7e1;stop-opacity:1"
+         offset="1"
+         id="stop4565" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4561"
+       id="linearGradient4567"
+       x1="105.95702"
+       y1="1516.2456"
+       x2="105.95702"
+       y2="829.63934"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.80800002,0,0,0.82786887,20.199997,165.75906)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#fef7e1"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.80345008"
+     inkscape:cx="339.30336"
+     inkscape:cy="-10.667936"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1368"
+     inkscape:window-height="714"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showborder="true"
+     inkscape:showpageshadow="true"
+     borderlayer="false" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-852.36225)">
+    <rect
+       style="fill:url(#linearGradient4567);fill-opacity:1;stroke:none;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4559"
+       width="202"
+       height="202"
+       x="-1.9073486e-06"
+       y="852.36224" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="11.435031"
+       y="923.93048"
+       id="text3629"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="11.435031"
+         y="923.93048"
+         id="tspan3633"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.99999619px;line-height:110.00000238%;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';fill:#62493c;fill-opacity:1">Moving </tspan><tspan
+         sodipodi:role="line"
+         x="11.435031"
+         y="967.93048"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:39.99999619px;line-height:110.00000238%;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans';fill:#62493c;fill-opacity:1"
+         id="tspan3637">to HTTPS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="7.6318331"
+       y="1006.5576"
+       id="text3629-5-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="7.6318331"
+         y="1006.5576"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.99999809px;font-family:'Noto Serif';-inkscape-font-specification:'Noto Serif';fill:#62493c;fill-opacity:1"
+         id="tspan3637-2-1">movingtohttps.com</tspan></text>
+  </g>
+</svg>
