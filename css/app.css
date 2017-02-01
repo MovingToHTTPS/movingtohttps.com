@@ -24,9 +24,15 @@ img {
 }
 a { cursor: pointer; }
 
+/* highlight text */
 ::selection {
     background-color: #fec021;
 }
+
+/* sub lists */
+ol ul { list-style-type: disc; }
+ol ul > li { margin: 1em 0; }
+ol ul ul > li { margin: .4em 0; }
 
 /* forms */
 select,
@@ -35,7 +41,7 @@ input[type="email"],
 .button {
     background: #FFF;
     padding: .5em;
-    border: 1px solid rgba(0, 0, 0, 0.4);
+    border: 1px solid #62493c;
     border-radius: 5px;
 
     /* prevent causing sidescroll */
@@ -45,7 +51,7 @@ select:hover,
 input[type="text"]:hover,
 input[type="email"]:hover,
 .button:hover {
-    border-color: rgba(0, 0, 0, 1);
+    border-color: #000;
 }
 
 /* ===== Layout ===== */
@@ -78,8 +84,11 @@ input[type="email"]:hover,
     .middle {
         display: flex;
     }
+    .main {
+        width: 70%;
+    }
     .sidebar {
-        max-width: 30%;
+        width: 30%;
     }
     .nav {
         float: right;
@@ -111,7 +120,7 @@ footer {
     padding: 15px;
     overflow: auto;
     background: #FFF;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 1px 2px #62493c;
 }
 
 /* toggle section */
