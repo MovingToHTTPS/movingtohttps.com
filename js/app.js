@@ -12,26 +12,21 @@ new Vue({
             platform: {
                 'wordpress': 'Wordpress',
                 'joomla': 'Joomla',
-                'drupal': 'Drupal',
-                'wix': 'Wix',
                 'magento': 'Magento',
                 'shopify': 'Shopify',
-                '': 'Other'
+                '': 'Other / Unknown'
             },
             hosting: {
-                'godaddy': 'GoDaddy',
-                'hostgator': 'HostGator',
-                'siteground': 'SiteGround',
-                '1and1': '1&1',
-                'heart-internet': 'Heart Internet',
-                'dedicated-server': 'Dedicated Server',
                 'cloudflare': 'Cloudflare',
-                '': 'Other'
+                'cpanel': 'cPanel / WHM',
+                'plesk': 'Plesk',
+                'custom': 'Dedicated host with Apache2 or Nginx or Lighttpd',
+                '': 'Other / Unknown'
             },
             control: {
                 'max': 'I have full code access & can install plugins etc if needed',
-                'med': 'I have access to page content only',
-                'min': 'I have minimal access'
+                'med': 'I have some code access but can install plugins etc if needed',
+                'min': 'I have access to page content & DNS only'
             }
         },
         showArea: {

@@ -97,7 +97,7 @@
                             </select>
                         </div>
                         <div class="filter-block">
-                            <label for="hosting">Hosting / CDN</label>
+                            <label for="hosting">Hosting / Web Server</label>
                             <br>
                             <select tabindex="1" name="hosting" id="hosting" v-model="hosting">
                                 <option v-for="(text, value) in options.hosting" v-bind:value="value" v-text="text"></option>
@@ -115,8 +115,6 @@
 
                 <hr>
 
-                <!--<div v-show="platform == 'wordpress'">This shows when Wordpress is selected!</div>-->
-
                 <!-- Migration process -->
                 <main>
 
@@ -125,7 +123,7 @@
                     <ol class="process-outline" v-show="showArea.outline">
                         <li>
                             <h3><a href="#pre-move">Pre move</a></h3>
-                            <p>Before actually moving you'll want to select an SSL certificate ready &amp; plan ready for the move</p>
+                            <p>Before actually moving you'll want to select the sort of SSL certificate you want ready &amp; plan ready for the move</p>
                         </li>
                         <li>
                             <h3><a href="#during-move">The move</a></h3>
@@ -146,22 +144,47 @@
                     <ol v-show="showArea.preMove">
                         <li>
                             <h3>Select an SSL certificate</h3>
-                            <p>There are 3 types of SSL/TLS certificates you can setup on your site:</p>
+                            <p>There are 3 main types of certificates you can choose from for your site:</p>
                             <ul>
-                                <li>DV - Domain Validation <em>(Free or purchase available)</em></li>
-                                <li>OV - Oranization Validation <em>(Requires purchase)</em></li>
-                                <li>EV - Extended Validation <em>(Requires purchase)</em></li>
+                                <li>Domain Validation <em>(DV)</em>
+                                    - Free via Let's Encrypt &amp; Cloudflare, or purchase available.
+                                    - Normally issued in minutes.
+                                    - Standard SSL (Just as secure as other options)
+                                </li>
+                                <li>Oranization Validation <em>(OV)</em>
+                                    - Requires purchase
+                                    - Can take several days to issue
+                                    - Shows organization within certificate but largly appears the same as DV
+                                </li>
+                                <li>Extended Validation <em>(EV)</em>
+                                    - Requires purchase, more expensive
+                                    - Can take up to a week to issue
+                                    - Shows oranization in url bar as well as within the certificate.
+                                </li>
                             </ul>
+                            <p>For most sites, DV certificates are what you want. Though it's worth considering EV certificates if showing the organization in the url bar is something you're interested in.</p>
+                            <p>Generally a certificate is created for a specific domain, e.g. www.site.com, but you can also get multi domain certificates and wildcard certificates to cover all your subdomains.</p>
+                            <p>If you're just looking to secure your main domain a single DV certificate is perfect.
+                                <br>Free DV certificates are available with <a href="https://www.cloudflare.com/">Cloudflare</a>
+                                <template v-if="control == 'max'"><br>and <a href="https://letsencrypt.org/">Let's Encrypt</a>.</template>
+                                <br>Many sites such as <a href="https://www.ssls.com/">SSLs.com</a>
+                                    <template v-if="control == 'max'"> or <a href="https://sslmate.com/">SSLmate</a></template> offer certifciates.</p>
+                            <p>If you're interested in an OV or EV certificate, best to go ahead and purchase these ready as they can take several days to be issued. But if you're selecting a DV certificate then you can wait till the moving day.</p>
+                            <p>Once you've selected the certificate you're interesed in you can move on to start migrating, but consider the following points to make sure you don't miss anything.</p>
                         </li>
                         <li>
                             <h3>Dedicate some time to your migration</h3>
-                            <p>Though installing a certificate can be pretty quick, the actual full migration process can take a good chunk of time to complete</p>
+                            <p>Though installing a certificate can be pretty quick, the actual full migration process can take a good chunk of time to fully complete.</p>
                         </li>
                         <li>
                             <h3>Consider making some changes pre migration</h3>
                             <p>Some changes such as fixing mixed content can often be done pre migration.
                                 <br>We've listed it later on as part of the migration flow, but feel free to skip ahead to this step in order to ease the migration later on.
                             </p>
+                        </li>
+                        <li v-if="hosting != 'cloudflare'">
+                            <h3>Using a CDN?</h3>
+                            <p>Check out your CDN's site to see if there's anything you need to change / be aware of during the migration process.</p>
                         </li>
                     </ol>
 
@@ -170,23 +193,66 @@
                     <ol v-show="showArea.duringMove">
                         <li>
                             <h3>Install the certificate</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis sequi atque, sunt laudantium eos quibusdam, vitae aliquid perferendis libero enim iusto labore voluptates! Maxime maiores eius consequatur similique deleniti.</p>
+                            <p v-if="hosting == 'cloudflare'">As Cloudflare sits between your</p>
+                            <p v-else>
+                                1. Cloudflare
+                                If you want to use the free certificate cloudflare provide all you need do is sign up with them and omve your nameservers to them which their site will guide you through this process.
+                                Once signed up and your site is running through cloudflare, you could opt to use the Pro plan which offers older browser support for ssl. Or on the
+
+                                2. WHM / cPanel
+                                https://documentation.cpanel.net/display/ALD/Install+an+SSL+Certificate+on+a+Domain
+
+                                3. Plesk
+                                https://uk.godaddy.com/help/plesk-install-a-certificate-5242
+
+                                4. Dedicated host with Apache2 or Nginx or Lighttpd
+                                Using these
+                                The <a href="https://mozilla.github.io/server-side-tls/ssl-config-generator/">Mozilla SSL Configuration Generator</a> can help build the congif you need to add to your server config files. e.g. if using Apache2
+
+                            </p>
                         </li>
                         <li>
                             <h3>Check the certificate</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A et nam dolorem expedita accusantium, temporibus magni dolores at vitae perspiciatis alias minima repudiandae porro illo maxime. Nam reprehenderit earum placeat!</p>
+                            <p>First check, load the site up in your browser and change the url to https. https://www.ssllabs.com/ssltest/</p>
                         </li>
                         <li>
                             <h3>Fix mixed content</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique laboriosam, ullam impedit soluta unde aut explicabo, minus excepturi, ipsam eius nesciunt optio tempore tenetur recusandae iure nostrum pariatur sint non.</p>
+                            <p>
+                            - CSP upgrade-insecure-requests (http://caniuse.com/#feat=upgradeinsecurerequests) (browser support)
+                            - CSP report issues (https://report-uri.io or https://httpschecker.net/guides/https-reporter
+                            - wordpress plugin (https://wordpress.org/plugins/really-simple-ssl/ or https://wordpress.org/plugins/ssl-insecure-content-fixer/)
+                            - desktop: https://httpschecker.net/guides/https-checker
+                            - cli: https://github.com/bramus/mixed-content-scan
+                            - a manual check is always a good start and chrome dev tools will show issues on each page
+                            </p>
                         </li>
                         <li>
                             <h3>Setup HTTP to HTTPS redirect</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique laboriosam, ullam impedit soluta unde aut explicabo, minus excepturi, ipsam eius nesciunt optio tempore tenetur recusandae iure nostrum pariatur sint non.</p>
+                            <p>Setup your .htaccess file to redirect to HTTPS</p>
+                        </li>
+                        <li>
+                            <h3>Change platform settings</h3>
+                            <p v-if="platform == 'wordpress'">In Settings > General > Update the "WordPress Address (URL)" and "Site Address (URL)" to be https:// instead of http://</p>
+                            <p v-if="platform == 'joomla'">In System > Global Configuration > Server > Force SSL > Select Entire Site</p>
+                            <p v-if="platform == 'magento'">In Admin > System > Configuration > General > Web > Secure > Select Yes for "Use Secure URLs in Frontend" &amp; "Use Secure URLs in Admin"</p>
+                            <p v-if="platform == 'shopify'">In Admin > Online Store > Domains > SSL certificates > click "Activate SSL certificates"</p>
+                            <p v-if="platform == ''">Check if your platform has a setting area for the URL or using SSL.</p>
                         </li>
                         <li>
                             <h3>Update 3rd party analytics &amp; other links</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique laboriosam, ullam impedit soluta unde aut explicabo, minus excepturi, ipsam eius nesciunt optio tempore tenetur recusandae iure nostrum pariatur sint non.</p>
+                            <p>Some 3rd party tracking sites require you either update the tracked origin url or setup a new account for monitoring.</p>
+                            <p>Here's a few examples, but worth doing a quick audit of any 3rd party tools you use:</p>
+                            <ul>
+                                <li>Google Search Console (Webmaster Tools) - Requires you setup a new account, this allows you to monitor traffic still in Google's index hitting the HTTP version first vs the HTTPS version of your site</li>
+                                <li>Google Analytics - Requires a URL change in a couple areas:
+                                    <ul>
+                                        <li>Admin > View Settings > Website's URL</li>
+                                        <li>Admin > Property Settings > Default URL</li>
+                                        <li>Admin > Property Settings > Search Console > Adjust Search Console > Link to the new Search Console account</li>
+                                    </ul>
+                                </li>
+                                <li>Google Merchant Center (Shopping) - Requires claiming the new URL in Business information > Website > Claim your website</li>
+                            </ul>
                         </li>
                     </ol>
 
@@ -194,12 +260,18 @@
                     <h2 id="post-move" v-bind:class="showArea.postMove ? '' : 'toggle-hidden-section print-hidden'">Post move</h2>
                     <ol v-show="showArea.postMove">
                         <li>
-                            <h3>Wait a week or so...</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis sequi atque, sunt laudantium eos quibusdam, vitae aliquid perferendis libero enim iusto labore voluptates! Maxime maiores eius consequatur similique deleniti.</p>
+                            <h3>Wait a day or even a week...</h3>
+                            <p>If you're using CSP this is a great point to check reports and fix any issues, this can be an ongoing process.</p>
                         </li>
                         <li>
-                            <h3>Impliment HSTS to make sure users always see the SSL version</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A et nam dolorem expedita accusantium, temporibus magni dolores at vitae perspiciatis alias minima repudiandae porro illo maxime. Nam reprehenderit earum placeat!</p>
+                            <h3>Impliment HSTS (HTTP Strict-Transport-Security) to make sure users always see the SSL version</h3>
+                            <p>One of the main reasons to wait a day or so is to make sure you don't need to back out of this.
+                                <br>With HSTS you can tell browsers when users visit your site to always go staright to the HTTPS version.</p>
+                            <p>Setup ...</p>
+                        </li>
+                        <li>
+                            <h3>Plan for when the certificate expires</h3>
+                            <p>You should make a note of when your certificate expires on a calander to be safe. Even if you've setup automatic renewal of the certificate with lets encrypt, you may still want to be alerted to check it's worked. With other SSL providers, they normally email you before renewal but best to be safe and keep track of this date yourself. If you had to install the certificate yourself, consider making notes on how you did this for your future self to use.</p>
                         </li>
                     </ol>
 
@@ -211,12 +283,20 @@
                             <p>Even with a redirect from HTTP to HTTPS setup, it's best to minimise temp HTTP redirects as these can still lead to exposing what the user was doing.</p>
                         </li>
                         <li>
+                            <h3>Update links on social media etc.</h3>
+                            <p>Though you've setup all your redirects, it's still best to try to send users direct to the HTTPS version without need to go through redirects.</p>
+                        </li>
+                        <li>
                             <h3>Aim for A+ on SSLLabs</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A et nam dolorem expedita accusantium, temporibus magni dolores at vitae perspiciatis alias minima repudiandae porro illo maxime. Nam reprehenderit earum placeat!</p>
+                            <p>Previously...</p>
+                        </li>
+                        <li>
+                            <h3>Consider preloading your HSTS</h3>
+                            <p>https://hstspreload.org/</p>
                         </li>
                         <li>
                             <h3>Iron out other similar security actions</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A et nam dolorem expedita accusantium, temporibus magni dolores at vitae perspiciatis alias minima repudiandae porro illo maxime. Nam reprehenderit earum placeat!</p>
+                            <p>Similar to ssl test earlier, this report will show some other recomendations such as use of secure cookies: https://httpsecurityreport.com/</p>
                         </li>
                     </ol>
 
