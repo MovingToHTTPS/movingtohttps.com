@@ -104,6 +104,13 @@ input[type="email"]:hover,
 }
 .ssowl img {
     width: 200px;
+    transition: transform 2s;
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+.ssowl:active img {
+    transition: transform 10s;
+    transform: rotate3d(1, 1, 1, 3600deg);
 }
 
 .main {}
