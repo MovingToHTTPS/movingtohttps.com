@@ -14,18 +14,20 @@ new Vue({
                 'joomla': 'Joomla',
                 'magento': 'Magento',
                 'shopify': 'Shopify',
+                'custom-php': 'Custom PHP',
                 '': 'Other / Unknown'
             },
             hosting: {
                 'cloudflare': 'Cloudflare',
                 'cpanel': 'cPanel / WHM',
                 'plesk': 'Plesk',
-                'custom': 'Dedicated host with Apache2 or Nginx or Lighttpd',
+                'custom-apache2': 'Apache2',
+                'custom-nginx': 'Nginx',
                 '': 'Other / Unknown'
             },
             control: {
-                'max': 'I have full code access & can install plugins etc if needed',
-                'med': 'I have some code access but can install plugins etc if needed',
+                'max': 'I have full code access',
+                'med': 'I have some code access',
                 'min': 'I have access to page content & DNS only'
             }
         },
