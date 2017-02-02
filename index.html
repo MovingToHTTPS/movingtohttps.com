@@ -54,10 +54,10 @@
                 </div>
 
                 <div class="about-site block">
-                    <p>A community site to help site owners migrate to HTTPS with a simple yet tried and tested plan. Allowing you to filter the plan based on multiple platforms, hosting envirments and control / access levels.</p>
+                    <p>A community site to help site owners migrate to HTTPS with a simple tested plan. Allowing you to filter the plan based on multiple platforms (<a href="/?platform=wordpress">Wordpress</a>, <a href="/?platform=magento">Magento</a>, and more), hosting envirments (<a href="/?hosting=cpanel">cPanel</a>, <a href="/?hosting=apache">Apache</a>, and more) along with the level of control / access you have over the site.</p>
                     <p>Are you migrating your site from HTTP to HTTPS?
-                        <a href="https://twitter.com/hashtag/movingtoHTTPS">#movingtoHTTPS</a></p>
-                    <p>Looking to contribute? All code is available on <a href="https://github.com/MovingtoHTTPS">GithHub</a>!</p>
+                        <a target="_blank" href="https://twitter.com/hashtag/movingtoHTTPS">#movingtoHTTPS</a></p>
+                    <p>Looking to contribute? All code is available on <a target="_blank" href="https://github.com/MovingtoHTTPS">GithHub</a>!</p>
 
                     <!-- Google Translate will show here -->
                     <div id="google_translate_element"></div>
@@ -123,19 +123,19 @@
                     <ol class="process-outline" v-show="showArea.outline">
                         <li>
                             <h3><a href="#pre-move">Pre move</a></h3>
-                            <p>Before actually moving you'll want to select the sort of SSL certificate you want ready &amp; plan ready for the move</p>
+                            <p>Before actually moving you'll want prepare a little, this includes selecting the sort of SSL certificate you want ready in case you need to purchase it in advance.</p>
                         </li>
                         <li>
-                            <h3><a href="#during-move">The move</a></h3>
-                            <p>Moving day, time to get/buy, install and check the SSL certificate, fix mixed content issues, setup redirects and check 3rd party integrations.</p>
+                            <h3><a href="#during-move">Moving day</a></h3>
+                            <p>Time to get/buy, install and check the SSL certificate, fix mixed content issues, setup redirects and check 3rd party integrations.</p>
                         </li>
                         <li>
                             <h3><a href="#post-move">Post move</a></h3>
-                            <p>Shortly after the initial move, check for new issues and once ready, setup the site to always use HTTPS</p>
+                            <p>Shortly after the initial move, check for new issues. Then once ready, setup the site to always use HTTPS.</p>
                         </li>
                         <li>
                             <h3><a href="#above-and-beyond">Going above and beyond</a></h3>
-                            <p>For the A+ students, fixing further issues &amp; similar security improments</p>
+                            <p>For the A+ students, fixing further issues &amp; similar security improments.</p>
                         </li>
                     </ol>
 
@@ -147,40 +147,69 @@
                             <p>There are 3 main types of certificates you can choose from for your site:</p>
                             <ul>
                                 <li>Domain Validation <em>(DV)</em>
-                                    - Free via Let's Encrypt &amp; Cloudflare, or purchase available.
-                                    - Normally issued in minutes.
-                                    - Standard SSL (Just as secure as other options)
+                                    <ul>
+                                        <li>Standard SSL (Just as secure as other options).</li>
+                                        <li>Free via Let's Encrypt &amp; Cloudflare, or purchase available.</li>
+                                        <li>Normally issued in minutes.</li>
+                                    </ul>
                                 </li>
                                 <li>Oranization Validation <em>(OV)</em>
-                                    - Requires purchase
-                                    - Can take several days to issue
-                                    - Shows organization within certificate but largly appears the same as DV
+                                    <ul>
+                                        <li>Shows organization within certificate but largly appears the same as DV.</li>
+                                        <li>Requires purchase.</li>
+                                        <li>Can take several days to issue.</li>
+                                    </ul>
                                 </li>
                                 <li>Extended Validation <em>(EV)</em>
-                                    - Requires purchase, more expensive
-                                    - Can take up to a week to issue
-                                    - Shows oranization in url bar as well as within the certificate.
+                                    <ul>
+                                        <li>Shows oranization in url bar as well as within the certificate.</li>
+                                        <li>Requires purchase, more expensive.</li>
+                                        <li>Can take up to a week to issue.</li>
+                                    </ul>
                                 </li>
                             </ul>
-                            <p>For most sites, DV certificates are what you want. Though it's worth considering EV certificates if showing the organization in the url bar is something you're interested in.</p>
-                            <p>Generally a certificate is created for a specific domain, e.g. www.site.com, but you can also get multi domain certificates and wildcard certificates to cover all your subdomains.</p>
-                            <p>If you're just looking to secure your main domain a single DV certificate is perfect.
-                                <br>Free DV certificates are available with <a href="https://www.cloudflare.com/">Cloudflare</a>
-                                <template v-if="control == 'max'"><br>and <a href="https://letsencrypt.org/">Let's Encrypt</a>.</template>
-                                <br>Many sites such as <a href="https://www.ssls.com/">SSLs.com</a>
-                                    <template v-if="control == 'max'"> or <a href="https://sslmate.com/">SSLmate</a></template> offer certifciates.</p>
-                            <p>If you're interested in an OV or EV certificate, best to go ahead and purchase these ready as they can take several days to be issued. But if you're selecting a DV certificate then you can wait till the moving day.</p>
+
+                            <p>For most sites, DV certificates are exactly what you're looking for. But it's worth considering EV certificates as they show the organization in the url bar.</p>
+                            <p>Another consideration is do you need this certificate for a single domain/subdomain or for multiple. There are single domain, multi domain and wildcard (all subdomains) certificates available from most SSL providers, though Let's Encrypt &amp; Cloudflare require you setup each subdomain seperatly.</p>
+
+                            <p>If you're just looking to secure your main domain a 1 or 2 DV certificates will work perfectly.
+                                <br>Free DV certificates are available with <a target="_blank" href="https://www.cloudflare.com/">Cloudflare</a>
+                                <template v-if="control == 'max'">
+                                and <a target="_blank" href="https://letsencrypt.org/">Let's Encrypt</a>.</template>
+                                <br>Many sites such as <a target="_blank" href="https://www.ssls.com/">SSLs.com</a>
+                                    <template v-if="control == 'max'"> or <a target="_blank" href="https://sslmate.com/">SSLmate</a></template> offer certifciates.</p>
+                            <p>If you're interested in an OV or EV certificate, best to go ahead and purchase these in advance as they can take several days to be issued. They will also require proof of the organization's existence. But if you're selecting a DV certificate then you can wait till the moving day.</p>
                             <p>Once you've selected the certificate you're interesed in you can move on to start migrating, but consider the following points to make sure you don't miss anything.</p>
                         </li>
                         <li>
+                            <h3>Could you migrate first on a test site?</h3>
+                            <p>If you are able to, first setting up a test / staging version of your site to migrate would ease the process greately as it reduces risk while making changes to the production site. This is optional as most sites don't have access to a test site, nor will many sites actually require one anyway.</p>
+                        </li>
+                        <li>
                             <h3>Dedicate some time to your migration</h3>
-                            <p>Though installing a certificate can be pretty quick, the actual full migration process can take a good chunk of time to fully complete.</p>
+                            <p>Installing a certificate can be pretty quick, though the actual full migration process can take a good chunk of time to properly complete. We'd advise starting the moving day portion of this guide when you have a few hours free. If everythign goes smoothly it may take much less time, but it's worth having that spare time just in case.</p>
+                        </li>
+                        <li>
+                            <h3>How will you track changes</h3>
+                            <p>In the event that the migration causes some short term distruptions in traffic and/or search rank, you'll want stats to fall back on and provide visibility of what exactly changed.</p>
+                            <p>If you havent already, setup <a target="_blank" href="https://www.google.co.uk/analytics/">Google Analytics</a> or a similar service and let it run for at least a week to get a good idea of current traffic &amp; behaviour.</p>
+                            <p>It's also worth making sure you have <a target="_blank" href="https://www.google.com/webmasters/">Google Search Console</a> (Webmaster tools) setup to track indexed pages and keywords used to find your site along with average position. You may also want to check out <a target="_blank" href="http://www.bing.com/toolbox/webmaster">Bing's Webmaster Tools</a>.</p>
                         </li>
                         <li>
                             <h3>Consider making some changes pre migration</h3>
-                            <p>Some changes such as fixing mixed content can often be done pre migration.
-                                <br>We've listed it later on as part of the migration flow, but feel free to skip ahead to this step in order to ease the migration later on.
+                            <p>Some changes such as fixing mixed content can often be done before the move.
+                                <br>We've listed it later on as part of the migration flow, but feel free to skip ahead through the guide to ease the changes later.
+                                <br>Other changes such as redirects &amp; 3rd party changes must wait 'til you first have SSL installed.
                             </p>
+                        </li>
+                        <li>
+                            <h3>Do you plan to move your entire site or just specific areas first?</h3>
+                            <p>If you can, moving your entire site. It means more work up front but given the SEO benifits and knowelege that your entire site is encrypted for users is worth it.</p>
+                            <p>However, not all sites are able to do this at one, at the very least you'll need to setup HTTPS for any login forms, payment pages and any pages that require or reveal user details.</p>
+                        </li>
+                        <li>
+                            <h3>Does you site have multiple variations?</h3>
+                            <p>During the migration you'll need to be aware of all variations of your site such as multiple lanages or location based changes or even AB tests in progress? During the mixed content fixing step you'll need to check all variations.</p>
                         </li>
                         <li v-if="hosting != 'cloudflare'">
                             <h3>Using a CDN?</h3>
@@ -300,7 +329,7 @@
                         </li>
                     </ol>
 
-                    <p><small>Disclaimer: This site is provided under the <a href="https://mit-license.org/">MIT licence</a> and available on <a href="https://github.com/MovingtoHTTPS">GitHub</a>. All content is provided as a resource to aide migration only. Following it in no way leaves the project or it's authors liable.</small></p>
+                    <p><small>Disclaimer: This site is provided under the <a target="_blank" href="https://mit-license.org/">MIT licence</a> and available on <a target="_blank" href="https://github.com/MovingtoHTTPS">GitHub</a>. All content is provided as a resource to aide migration only. Following it in no way leaves the project or it's authors liable.</small></p>
 
                 </main>
 

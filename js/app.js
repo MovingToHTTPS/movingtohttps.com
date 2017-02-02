@@ -14,15 +14,15 @@ new Vue({
                 'joomla': 'Joomla',
                 'magento': 'Magento',
                 'shopify': 'Shopify',
-                'custom-php': 'Custom PHP',
+                'php': 'Custom PHP',
                 '': 'Other / Unknown'
             },
             hosting: {
                 'cloudflare': 'Cloudflare',
                 'cpanel': 'cPanel / WHM',
                 'plesk': 'Plesk',
-                'custom-apache2': 'Apache2',
-                'custom-nginx': 'Nginx',
+                'apache': 'Apache',
+                'nginx': 'Nginx',
                 '': 'Other / Unknown'
             },
             control: {
