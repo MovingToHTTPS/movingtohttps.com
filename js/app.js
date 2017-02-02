@@ -48,6 +48,7 @@ new Vue({
                 url += '&hosting=' + this.hosting;
                 url += '&control=' + this.control;
                 history.replaceState({}, '', url);
+                window.ga && window.ga('send', 'pageview', url);
             },
             deep: true
         }
@@ -75,5 +76,12 @@ new Vue({
                 this.control = urlParams.control;
             }
         }
+    }
+});
+
+// report any js errors on page back to analytics
+window.addEventListener('error', function(t) {
+    if (window.ga) {
+        window.ga('send', 'event', 'js error', t.message + ' (' + t.filename + ': ' + t.lineno + ')', t.stack);
     }
 });
