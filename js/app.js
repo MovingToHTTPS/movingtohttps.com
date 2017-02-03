@@ -79,9 +79,24 @@ new Vue({
     }
 });
 
+// helper to send events to google analytics
+// ref: https://developers.google.com/analytics/devguides/collection/analyticsjs/events
+var eventTrack = function (category, action, label) {
+    if (window.ga) {
+        window.ga('send', 'event', category, action, label);
+    }
+};
+
 // report any js errors on page back to analytics
 window.addEventListener('error', function(t) {
-    if (window.ga) {
-        window.ga('send', 'event', 'js error', t.message + ' (' + t.filename + ': ' + t.lineno + ')', t.stack);
-    }
+    eventTrack('js error', t.message + ' (' + t.filename + ': ' + t.lineno + ')', t.stack);
+});
+
+// track if "add to homepage" shown, and if anyone installs it
+// ref: https://developers.google.com/web/updates/2015/03/increasing-engagement-with-app-install-banners-in-chrome-for-android#wzxhzdk7did_a_user_install_our_web_appwzxhzdk8
+window.addEventListener('beforeinstallprompt', function(e) {
+    eventTrack('add to homepage', 'shown');
+    e.userChoice.then(function(choiceResult) {
+        eventTrack('add to homepage', choiceResult.outcome);
+    });
 });
