@@ -118,6 +118,18 @@
                 <!-- Migration process -->
                 <main>
 
+                    <!-- Short line showing selected filters -->
+                    <p>
+                        <small v-if="platform">
+                            This guide is for moving {{ platform }} sites<span v-if="hosting"> hosted with {{ hosting }}</span> to HTTPS.
+                        </small>
+                        <small v-else-if="hosting">
+                            This guide is for moving sites using {{ hosting }} to HTTPS
+                        </small>
+                        <small class="print-hidden">- Use the above filters to suit your needs.</small>
+                    </p>
+
+                    <!-- Outline -->
                     <a class="toggle-section print-hidden" @click="showArea.outline = !showArea.outline">[Toggle]</a>
                     <h2 v-bind:class="showArea.outline ? '' : 'toggle-hidden-section print-hidden'">Outline</h2>
                     <ol class="process-outline" v-show="showArea.outline">
@@ -139,6 +151,7 @@
                         </li>
                     </ol>
 
+                    <!-- Pre move -->
                     <a class="toggle-section print-hidden" @click="showArea.preMove = !showArea.preMove">[Toggle]</a>
                     <h2 id="pre-move" v-bind:class="showArea.preMove ? '' : 'toggle-hidden-section print-hidden'">Pre move</h2>
                     <ol v-show="showArea.preMove">
@@ -217,6 +230,7 @@
                         </li>
                     </ol>
 
+                    <!-- During move -->
                     <a class="toggle-section print-hidden" @click="showArea.duringMove = !showArea.duringMove">[Toggle]</a>
                     <h2 id="during-move" v-bind:class="showArea.duringMove ? '' : 'toggle-hidden-section print-hidden'">Moving day</h2>
                     <ol v-show="showArea.duringMove">
@@ -285,6 +299,7 @@
                         </li>
                     </ol>
 
+                    <!-- Post Move -->
                     <a class="toggle-section print-hidden" @click="showArea.postMove = !showArea.postMove">[Toggle]</a>
                     <h2 id="post-move" v-bind:class="showArea.postMove ? '' : 'toggle-hidden-section print-hidden'">Post move</h2>
                     <ol v-show="showArea.postMove">
@@ -304,6 +319,7 @@
                         </li>
                     </ol>
 
+                    <!-- Above and beyond -->
                     <a class="toggle-section print-hidden" @click="showArea.aboveAndBeyond = !showArea.aboveAndBeyond">[Toggle]</a>
                     <h2 id="above-and-beyond" v-bind:class="showArea.aboveAndBeyond ? '' : 'toggle-hidden-section print-hidden'">Going above and beyond</h2>
                     <ol v-show="showArea.aboveAndBeyond">
