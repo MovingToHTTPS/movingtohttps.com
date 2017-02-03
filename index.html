@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -42,7 +44,7 @@
         </nav>
 
         <header class="header">
-            <h1>Moving to HTTPS Guide</h1>
+            <h1><a href="/">Moving to HTTPS Guide</a></h1>
         </header>
 
         <div class="middle">
@@ -119,7 +121,7 @@
                 <main>
 
                     <!-- Short line showing selected filters -->
-                    <p>
+                    <p class="guide-introduction">
                         <small v-if="platform">
                             This guide is for moving {{ platform }} sites<span v-if="hosting"> hosted with {{ hosting }}</span> to HTTPS.
                         </small>

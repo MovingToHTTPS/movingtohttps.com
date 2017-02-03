@@ -94,6 +94,9 @@ input[type="email"]:hover,
 .header h1 {
     margin: 15px;
 }
+.header a {
+    text-decoration: none;
+}
 .nav {
     padding-top: 15px;
     text-align: center;
@@ -195,6 +198,12 @@ footer {
 .filter-block select {
     width: 100%;
 }
+
+/* hide the filters when no-js */
+.no-js .filters,
+.no-js .guide-introduction,
+.no-js .toggle-section { display: none;  }
+
 
 /* ===== Print ===== */
 @media print {
