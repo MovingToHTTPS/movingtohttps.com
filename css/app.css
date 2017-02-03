@@ -42,6 +42,11 @@ img {
 }
 a { cursor: pointer; }
 
+/* code blocks */
+code {
+    white-space: pre-wrap;
+}
+
 /* quotes */
 blockquote { position: relative; font-style: italic; }
 blockquote:before {
