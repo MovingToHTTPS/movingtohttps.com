@@ -157,6 +157,7 @@ footer {
 .block {
     padding: 15px;
     overflow: auto;
+    word-wrap: break-word;
     background: #FFF;
     box-shadow: 0 1px 2px #62493c;
 }
@@ -229,5 +230,10 @@ footer {
     .process-outline a {
         color: inherit;
         text-decoration: inherit;
+    }
+
+    /* show external links */
+    a[target="_blank"][href]:after {
+        content: " (" attr(href) ")";
     }
 }
