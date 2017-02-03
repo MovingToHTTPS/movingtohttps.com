@@ -5,8 +5,23 @@ body {
     font-family: 'Noto Sans', sans-serif;
     color: #444;
     background: #fef7e1;
-    background: linear-gradient(to bottom, #fef7e1 0%, #fec021 100%);
+    position: relative;
 }
+html, body {
+    overflow-x: hidden;
+}
+body:before {
+    content: "";
+    background: linear-gradient(to bottom, rgba(254, 192, 33, 0.3), rgba(254, 192, 33, 0.6));
+    position: absolute;
+    z-index: -1;
+    top: -250px;
+    left: -200px;
+    right: -200px;
+    height: 600px;
+    transform: rotate(-18deg);
+}
+
 h1, h2, h3 {
     font-family: 'Noto Serif', serif;
 }
