@@ -62,6 +62,9 @@ blockquote:before {
     background-color: #fec021;
 }
 
+/* top level lists */
+main > ol { margin-bottom: 3em; }
+
 /* sub lists */
 ol ul { list-style-type: disc; }
 ol ul > li { margin: 1em 0; }
