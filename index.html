@@ -432,6 +432,12 @@
 
                         </li>
                         <li>
+                            <h3>Check all forms &amp; redirects are over HTTPS</h3>
+                            <p>Often grouped in with mixed content, forms that have insecure / HTTP actions set. This is because even if you redirect your whole site, the form data would still first be sent over HTTP to hit the redirect and then go over HTTPS, exposing the data in that inbetween HTTP step.</p>
+                            <p>The same is true for redirects such as redirects to urls logged in areas of a site.</p>
+                            <p>The above mixed content checking tools can help you track these down too.</p>
+                        </li>
+                        <li>
                             <h3>Setup HTTP to HTTPS redirect</h3>
                             <p>In order to make sure users reach the HTTPS version of your site you can use a 301 redirect and send all requests to the HTTPS version.</p>
 
@@ -467,6 +473,17 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                             <p v-if="platform == 'magento'">In Magento > Admin > System > Configuration > General > Web > Secure > Select Yes for "Use Secure URLs in Frontend" &amp; "Use Secure URLs in Admin"</p>
                             <p v-if="platform == 'shopify'">In Shopfiy > Admin > Online Store > Domains > SSL certificates > click "Activate SSL certificates"</p>
                             <p v-if="platform == ''">Check if your platform/site has a settings area for the default URL or a switch for using SSL.</p>
+                        </li>
+                        <li>
+                            <h3>Check common core files use HTTPS</h3>
+                            <p>Most sites have a few common files such as robots.txt &amp; sitemap.xml.</p>
+                            <p>Check to make sure these redirect to HTTPS versions and references to URLs inside the files all also use HTTPS.</p>
+                        </li>
+                        <li>
+                            <h3>Update any canonical &amp; og:url references</h3>
+                            <p>Often sites use canonical links in the <code>&lt;head&gt;</code> of pages to point to the correct url for a page, e.g. if multiple URL's reach the same page in your site these are important. It's worth checking if your site uses these that it points to the HTTPS version.</p>
+                            <p>At the same time you should in the <code>&lt;meta&gt;</code> of your site</p>
+                            <p>Most times site that use these are using a platform that auto generates them, so if you check just a couple pages you should be safe that this will be ok on all pages.</p>
                         </li>
                         <li>
                             <h3>Update 3rd party analytics &amp; other links</h3>
