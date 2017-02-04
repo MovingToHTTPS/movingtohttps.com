@@ -12,10 +12,10 @@ self.addEventListener('install', e => {
                 '/images/owl.svg',
                 '/css/app.css',
                 '/js/app.js',
-                'https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Noto+Serif:400,400i,700,700i',
+                'https://fonts.googleapis.com/css?family=Bungee+Shade|Noto+Sans:400,400i,700,700i',
                 'https://unpkg.com/normalize.css@5.0.0/normalize.css',
                 'https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css',
-                'https://unpkg.com/vue@2.1.10/dist/vue.js',
+                'https://unpkg.com/vue@2.1.10/dist/vue.min.js',
             ])
             .then(() => self.skipWaiting());
         })

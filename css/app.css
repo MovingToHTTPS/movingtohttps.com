@@ -2,7 +2,7 @@
 /* ===== Base ===== */
 html { height: auto !important; /* force as google translate tries to change this */ }
 body {
-    font-family: 'Noto Sans', sans-serif;
+    font-family: "Noto Sans", sans-serif;
     color: #444;
     background: #fef7e1;
     position: relative;
@@ -22,8 +22,8 @@ body:before {
     transform: rotate(-18deg);
 }
 
-h1, h2, h3 {
-    font-family: 'Noto Serif', serif;
+h1, h2 {
+    font-family: "Bungee Shade", sans-serif;
 }
 h1, h2, h3, a {
     color: #62493c;
@@ -213,6 +213,11 @@ footer {
 
 /* ===== Print ===== */
 @media print {
+
+    /* put headings back to same font as body as it'll print easier */
+    h1, h2 {
+        font-family: "Noto Sans", sans-serif;
+    }
 
     /* hide a few unmeeded areas */
     .print-hidden,
