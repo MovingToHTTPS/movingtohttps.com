@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="about-site block">
-                    <p>A community site to help site owners migrate to HTTPS with a simple tested plan. Allowing you to filter the plan based on multiple platforms (<a href="/?platform=wordpress">Wordpress</a>, <a href="/?platform=magento">Magento</a>, and more), hosting envirments (<a href="/?hosting=cpanel">cPanel</a>, <a href="/?hosting=apache">Apache</a>, and more) along with the level of control / access you have over the site.</p>
+                    <p>A community site to help site owners migrate to HTTPS with a simple tested process. Allowing you to filter the plan based on multiple platforms (<a href="/?platform=wordpress">Wordpress</a>, <a href="/?platform=magento">Magento</a>, and more), hosting environments (<a href="/?hosting=cpanel">cPanel</a>, <a href="/?hosting=apache">Apache</a>, and more) along with the level of control / access you have over the site.</p>
                     <p>Are you migrating your site from HTTP to HTTPS?
                         <a target="_blank" href="https://twitter.com/hashtag/movingtoHTTPS">#movingtoHTTPS</a></p>
                     <p>Looking to contribute? All code is available on <a target="_blank" href="https://github.com/MovingtoHTTPS">GithHub</a>!</p>
@@ -288,25 +288,28 @@
                             </p>
 
                             <template v-if="control != 'min' && hosting != 'cloudflare'">
+
                                 <p>In order to purchase a certificate through any 3rd party you will need to generate a Private Key &amp; a Certificate Signing Request (CSR). They will only need the CSR but the private key is needed on your server.</p> <p>The site you're purchasing from should guide you through this, but in case:</p>
+
                                 <template v-if="hosting == 'cpanel'">
-                                    <p>Inside the cPanel account > Security > SSL / TLS Manager</p>
-                                    <p>First for the Private key, Generate, view, upload, or delete your private keys > Select the domain &amp; Generate >
-
-                                        TODO: finish instructions
-
+                                    <p>Inside your cPanel account > Security > SSL/TLS Manager</p>
+                                    <p>First we need the Private key: Under "Private Keys (KEY)" click "Generate, view, upload, or delete your private keys" > Scroll down and under "Generate a New Key" select the domain &amp; click Generate.
+                                        <br>This should now have generated the key, next we need the CSR.
+                                        <br>Click "Return to SSL Manager" to go back and this time under "Certificate Signing Requests (CSR)" click "Generate, view, or delete SSL certificate signing requests" > enter the details requested, Host being the domain you're generating this certificate for, Country being the 2 character code e.g. US for United States, then click Generate. This will then show you the CSR which you can copy and paste to the certificate authority you are buying the certificate from.
                                     </p>
                                 </template>
+
                                 <template v-else-if="hosting == 'plesk'">
-                                    <p>Inside Plesk >
-
-                                        TODO: finish instructions
-
+                                    <p>Inside Plesk > Hosting Services > Domains > Find the domain you want to setup SSL for and click "Control Panel" > Websites &amp; Domains > Secure Your Sites > Add SSL Certificate > Enter the details requested &amp; click Request. The CSR should then be available in "SSL Certificates" which you can copy and paste to the certificate authority you are buying the certificate from.
                                     </p>
                                 </template>
+
                                 <template v-else>
-                                    <p><a target="_blank" href="https://www.digicert.com/csr-creation.htm">Digicert have a useful support page listing multiple platforms &amp; operating systems each linking off to how to generate your CSR</a>, these also include generating the private key at the same time. E.g. Digicert offer a <a target="_blank" href="https://www.digicert.com/easy-csr/openssl.htm">OpenSSL CSR Creation</a> which generates a command you can run via ssh which generates both the CSR and private key file.</p>
+                                    <p><a target="_blank" href="https://www.digicert.com/csr-creation.htm">Digicert have a useful support page</a>. listing multiple platforms &amp; operating systems each linking off to how to generate your CSR.
+                                    <br>Also <a target="_blank" href="https://uk.godaddy.com/help/ssl-certificates-1000006">GoDaddy have great documention</a> on this as well.
+                                    <br>These also include generating the private key at the same time. E.g. Digicert offer a <a target="_blank" href="https://www.digicert.com/easy-csr/openssl.htm">OpenSSL CSR Creation</a> which generates a command you can run via ssh which generates both the CSR and private key file.</p>
                                 </template>
+
                             </template>
 
 
@@ -315,15 +318,16 @@
                             <h3>Install the certificate</h3>
 
                             <p v-if="hosting == 'cpanel'">
-
-                                TODO: finish instructions
-
+                                Inside your cPanel account > SSL/TLS Manager > "Generate, view, upload, or delete SSL certificates" > "Upload a New Certificate" > paste or upload the .crt file here &amp; click Upload.
+                                <br>Click Go Back > Return to SSL Manager > Setup a SSL certificate to work with your site > Select the domain &amp; this should fetch the certificate &amp; key for you, but if this option doesn't show or doesn't work you may need to contact your hosting provider / support. Under the certificate &amp; key there should now be a 3rd box for Ca Bundle where you'll need to paste you bundle file. Click Install Certificate &amp; your done.
+                                <br>Now you just need to restart Apache for it to take effect.
                             </p>
+
                             <p v-else-if="hosting == 'plesk'">
-
-                                TODO: finish instructions
-
+                                Inside Plesk > Hosting Services > Domains > Find the domain you want to setup SSL for and click "Control Panel" > Websites &amp; Domains > Secure Your Sites > Under "Certificate name" find the certificate you previously setup. Upload the Certificate / .crt file, and upload the CA certificate / bundle file, then click "Send File". Back to the Websites &amp; Domains > Check that "Enable SSL support" is selected &amp; then select your certificate from the menu, Click OK and you're done.
+                                <br>Now you just need to restart Apache for it to take effect.
                             </p>
+
                             <template v-else>
 
                                 <template v-if="control == 'max'">
