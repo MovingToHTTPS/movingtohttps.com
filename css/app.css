@@ -130,6 +130,13 @@ input[type="email"]:hover,
         display: -ms-flexbox;
         display: flex;
     }
+
+    .main,
+    .sidebar {
+        /* fix flex issue where main area appears slightly off screen in Safari 8 and before */
+        -webkit-box-flex: 1;
+    }
+
     .main {
         width: 70%;
     }
