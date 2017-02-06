@@ -249,7 +249,7 @@
                         <li>
                             <h3>Get the certificate</h3>
                             <p>At this point, if you haven't previously got your SSL certificate, now is the time to do so.
-                                <br>Already have your certifciate? Skip this step to installing it.</p>
+                                <br>Already have your certifciate? Skip this step and proceed to installing it.</p>
 
                             <!-- Using let's encrypt -->
 
@@ -281,15 +281,15 @@
                                 You may need to ask who runs your server to install the plugin if it's not already installed.
                             </p>
 
-                            <!-- Using Cloudflare -->
+                            <!-- Using Cloudflare? -->
                             <p>
-                                If you want to use the free certificate Cloudflare provide all you need do is sign up with them and move your nameservers to them which their site will guide you through this process.
+                                If you want to use Cloudflare's free certificates, all you need do is sign up with them and move your nameservers to them which their site will guide you through this process.
                                 <br>Once signed up and your site is running through Cloudflare, you could opt to use the Pro plan which offers older browser support for ssl.
                             </p>
 
                             <template v-if="control != 'min' && hosting != 'cloudflare'">
 
-                                <p>In order to purchase a certificate through any 3rd party you will need to generate a Private Key &amp; a Certificate Signing Request (CSR). They will only need the CSR but the private key is needed on your server.</p> <p>The site you're purchasing from should guide you through this, but in case:</p>
+                                <p>In order to purchase a certificate through any 3rd party you will need to generate a Private Key &amp; a Certificate Signing Request (CSR) on your web server. They will only need the CSR but the private key is needed on your server.</p> <p>The site you're purchasing from should guide you through this, but in case:</p>
 
                                 <template v-if="hosting == 'cpanel'">
                                     <p>Inside your cPanel account > Security > SSL/TLS Manager</p>
@@ -305,7 +305,7 @@
                                 </template>
 
                                 <template v-else>
-                                    <p><a target="_blank" href="https://www.digicert.com/csr-creation.htm">Digicert have a useful support page</a>. listing multiple platforms &amp; operating systems each linking off to how to generate your CSR.
+                                    <p><a target="_blank" href="https://www.digicert.com/csr-creation.htm">Digicert have a useful support page</a> listing multiple platforms &amp; operating systems each linking off to how to generate your CSR.
                                     <br>Also <a target="_blank" href="https://uk.godaddy.com/help/ssl-certificates-1000006">GoDaddy have great documention</a> on this as well.
                                     <br>These also include generating the private key at the same time. E.g. Digicert offer a <a target="_blank" href="https://www.digicert.com/easy-csr/openssl.htm">OpenSSL CSR Creation</a> which generates a command you can run via ssh which generates both the CSR and private key file.</p>
                                 </template>
@@ -331,9 +331,9 @@
                             <template v-else>
 
                                 <template v-if="control == 'max'">
-                                    <p>Using the <a target="_blank" href="https://mozilla.github.io/server-side-tls/ssl-config-generator/">Mozilla SSL Configuration Generator</a> you can help build the config you need to add to your server config files. e.g. if using Apache2 you'll need to either change your .htaccess or apache.conf file.</p>
-                                    <p>Then upload the certificates to the paths shown in the config, e.g. /path/to/signed_certificate</p>
-                                    <p>This tool also adds the HSTS header to the config, you could choose to add this now, but we'd advise holding onto that part for now and adding it in later which we will go over later in the guide.</p>
+                                    <p>Using the <a target="_blank" href="https://mozilla.github.io/server-side-tls/ssl-config-generator/">Mozilla SSL Configuration Generator</a> you can build the config needed to add to your server config files. e.g. if using Apache2 you'll need to either change your .htaccess or apache.conf file.</p>
+                                    <p>Then upload the certificates to the paths shown in the config, e.g. <code>/path/to/signed_certificate</code></p>
+                                    <p>This tool also adds the HSTS (Strict-Transport-Security) header to the config, you could choose to add this now, but we'd advise holding onto that part for now and adding it in later which we will go over later in the guide.</p>
                                 </template>
                                 <template v-else>
                                     <p>Unless your platform allows you to install the certificate, you will need to contact them and ask to install the certificate for you onto the site's server.</p>
@@ -344,17 +344,18 @@
                         </li>
                         <li>
                             <h3>Check the certificate</h3>
-                            <p>First check, before any others, load the site up in your browser (make sure to load the https version).</p>
+                            <p>First check, before any others, load the site up in your browser (make sure to load the HTTPS version).</p>
                             <p v-if="hosting == 'cloudflare'">It may take a few minutes for Cloudflare to provision your certificate. You can check on this progress in the Crypto tab > SSL > under the drop down it will say "Active Certificate" once complete.</p>
                             <p>Any issues shown in your browser? no? brilliant!</p>
                             <p>However, if you do see an error message, the message may point you in the right direction, but <a target="_blank" href="https://www.ssllabs.com/ssltest/">SSLLabs</a> can be used here to check and diagnose the issue.</p>
-                            <p v-if="control == 'max'"><em>If needed, <a target="_blank" href="https://maulwuff.de/research/ssl-debugging.html">this article</a> can be very useful in debugging typical ssl issues, though the post is fairly technical.</em></p>
-                            <p>You hopefully wont see a full page error screen, though you may find you don't have a green lock / https indiciator in the url bar. Which brings us onto the next subject, fixing insecure / mixed content issues.</p>
+                            <p v-if="control == 'max'"><em>If needed, <a target="_blank" href="https://maulwuff.de/research/ssl-debugging.html">this article</a> can be very useful in debugging typical SSL issues, though the post is fairly technical.</em></p>
+                            <p>You hopefully wont see a full page error screen, though you may find you don't have a green lock / HTTPS indiciator in the url bar. Which brings us onto the next subject, fixing insecure / mixed content issues.</p>
                         </li>
                         <li>
                             <h3>Find mixed content</h3>
                             <p>Mixed content is when you have assets/resources on pages that try to load over HTTP instead of HTTPS. This affects images, scripts, css and more.</p>
-                            <p>There are 2 types of mixed content, the first is active mixed content, things like javascript files that could change the content of the page if intercepted by a man-in-the-middle. This is often blocked in browsers but can leave parts of your site broken becuase of this. The other type is passive mixed content, such as images, which are less dangerous, but still an issue and though not blocked in the browser, having these will replace your green HTTPS &amp; lock symbol with a grey version indicating it's over HTTPS but has issues.</p>
+                            <p>There are 2 types of mixed content, the first is active mixed content, things like javascript files that could change the content of the page if intercepted by a <a target="_blank" href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle</a>. This is often blocked in browsers but can leave parts of your site broken becuase of this.
+                            <br>The other type is passive mixed content, such as images, which are less dangerous, but still an issue and though not blocked in the browser, having these will replace your green HTTPS &amp; lock symbol with a grey version indicating it's over HTTPS but has issues.</p>
 
                             <p>There are a few ways to find mixed content on your site, the simplest is to load up pages and use your browsers developer tools to see warnings. But doing this over an entire site would likely be either very slow or impossible.</p>
 
@@ -363,25 +364,30 @@
                                 <li>
                                     CSP (Content Security Policy) reporting, which is a way to tell browsers to send issue reports back to you as users navigate through your site.
                                     <br>
-                                    It's usually a regarded as the more complete option as it catches any ajax issues that crawling may not find, though it requires you first have users visiting pages with mixed content on to report them. It also only works if you have access to modify the HTTP response headers of your site, plugins can often acomplish this though.
-                                    <br>
-                                    CSP violations can be sent back to a central server for you to monitor them and recieve alerts, here's a few examples:
-                                    <ul>
-                                        <li>
-                                            <a target="_blank" href="https://report-uri.io/">Report URI</a>
-                                            - Offers free hosted CSP collectiom, great graphs and tools to build a CSP header.
-                                        </li>
-                                        <li>
-                                            <a target="_blank" href="https://httpschecker.net/guides/https-reporter">HTTPS Reporter</a>
-                                            - Paid CSP hosting, provides you with a prebuilt CSP header designed just to catch mixed content issues ready to set up on your site.
-                                        </li>
-                                        <li v-if="control != 'min'">
-                                            <a target="_blank" href="https://github.com/c0nrad/caspr">Caspr the friendly CSP Report Aggregator</a> - <em>Though no longer under active development</em>, this is an open source CSP service you can run on Heroku.
-                                        </li>
-                                        <li v-if="control == 'max'">
-                                            Or you could <a target="_blank" href="https://mathiasbynens.be/notes/csp-reports">build a script yourself</a> to collect your CSP reports.
-                                        </li>
-                                    </ul>
+                                    <template v-if="control == 'min'">
+                                        Though setting this up usually requires access to the code or to install plugins to your platform so we'll skip this.
+                                    </template>
+                                    <template v-else>
+                                        It's usually a regarded as the more complete option as it catches any ajax issues that crawling may not find, though it requires you first have users visiting pages with mixed content on to report them. It also only works if you have access to modify the HTTP response headers of your site, plugins can often acomplish this though.
+                                        <br>
+                                        CSP violations can be sent back to a central server for you to monitor them and recieve alerts, here's a few examples:
+                                        <ul>
+                                            <li>
+                                                <a target="_blank" href="https://report-uri.io/">Report URI</a>
+                                                - Offers free hosted CSP collectiom, great graphs and tools to build a CSP header.
+                                            </li>
+                                            <li>
+                                                <a target="_blank" href="https://httpschecker.net/guides/https-reporter">HTTPS Reporter</a>
+                                                - Paid CSP hosting, provides you with a prebuilt CSP header designed just to catch mixed content issues ready to set up on your site.
+                                            </li>
+                                            <li>
+                                                <a target="_blank" href="https://github.com/c0nrad/caspr">Caspr the friendly CSP Report Aggregator</a> - <em>Though no longer under active development</em>, this is an open source CSP service you can run on Heroku.
+                                            </li>
+                                            <li v-if="control == 'max'">
+                                                Or you could <a target="_blank" href="https://mathiasbynens.be/notes/csp-reports">build a script yourself</a> to collect your CSP reports.
+                                            </li>
+                                        </ul>
+                                    </template>
                                 </li>
                                 <li>
                                     Using a tool to externally crawl over your site at once.
@@ -401,6 +407,8 @@
                                 </li>
                                 <li v-if="platform == 'wordpress'">
                                     There are some Wordpress plugins dedicated to HTTPS migration help, these will also assit in the following steps so worth checking them out before continuing.
+                                    <br>
+                                    For Wordpress sites, these are usually our recommended way to go, but could be combined with the tools above to be extra safe.
                                     <ul>
                                         <li><a target="_blank" href="https://wordpress.org/plugins/really-simple-ssl/">Really Simple SSL</a></li>
                                         <li><a target="_blank" href="https://wordpress.org/plugins/ssl-insecure-content-fixer/">SSL Insecure Content Fixer</a></li>
@@ -418,7 +426,7 @@
                                 The above Wordpress plugins can help fix issues, the following will help with areas you need to manually change though.
                             </p>
 
-                            <p>The essence of fixing mixed content issues is to replace HTTP resources with HTTPS.</p>
+                            <p>The essence of fixing mixed content issues is to replace links to HTTP resources with HTTPS.</p>
                             <p>E.g. <code>&lt;img src=&quot;http://site.com/image.png&quot;&gt;</code>
                                 <br>Would need replacing with <code>&lt;img src=&quot;https://site.com/image.png&quot;&gt;</code> to load over HTTPS instead.
                             </p>
@@ -427,9 +435,10 @@
 
                             <p v-if="control == 'max'">
                                 Another option to help the migration process is to use the CSP header of "upgrade-insecure-requests" <a target="_blank" href="http://caniuse.com/#feat=upgradeinsecurerequests">(Browser support is fairly good and improving)</a>. You can <a target="_blank" href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content#upgrading_insecure_requests">read more about this here</a>.
+                                This is probably the nicest way to do it, but requires the resource actually have a HTTPS version available, so worth checking or reporting these issues too.
                             </p>
                             <p v-if="control == 'max'">
-                                You could also use CSP set to block all non HTTPS requests, though will result in broken images, style &amp; scripts that, better to use this in the previous step to report issues.
+                                You could also use CSP set to block all non HTTPS requests, though this will result in broken images, style &amp; scripts that, so using this with the reporting services above would be wanted.
                             </p>
 
                             <p>To test, recheck your site with the tools used in the previous step.</p>
@@ -437,7 +446,7 @@
                         </li>
                         <li>
                             <h3>Check all forms &amp; redirects are over HTTPS</h3>
-                            <p>Often grouped in with mixed content, forms that have insecure / HTTP actions set. This is because even if you redirect your whole site, the form data would still first be sent over HTTP to hit the redirect and then go over HTTPS, exposing the data in that inbetween HTTP step.</p>
+                            <p>Usually grouped in with mixed content, forms that have insecure / HTTP actions set. This is because even if you redirect your whole site, the form data would still first be sent over HTTP to hit the redirect and then go over HTTPS, exposing the data in that inbetween HTTP step.</p>
                             <p>The same is true for redirects such as redirects to urls logged in areas of a site.</p>
                             <p>The above mixed content checking tools can help you track these down too.</p>
                         </li>
@@ -479,8 +488,8 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                             <p v-if="platform == ''">Check if your platform/site has a settings area for the default URL or a switch for using SSL.</p>
                         </li>
                         <li>
-                            <h3>Check common core files use HTTPS</h3>
-                            <p>Most sites have a few common files such as robots.txt &amp; sitemap.xml.</p>
+                            <h3>Check common files use HTTPS</h3>
+                            <p>Most sites have a couple common files such as robots.txt &amp; sitemap.xml.</p>
                             <p>Check to make sure these redirect to HTTPS versions and references to URLs inside the files all also use HTTPS.</p>
                         </li>
                         <li>
@@ -572,7 +581,7 @@ Header set Strict-Transport-Security "max-age=15768000;"
                         </li>
                         <li>
                             <h3>Iron out other similar security actions</h3>
-                            <p>Similar to ssl test earlier, this report will show some other recommendations such as use of secure cookies: <a target="_blank" href="https://httpsecurityreport.com/">Security Report.</a></p>
+                            <p>Similar to SSL test earlier, this report will show some other recommendations such as use of secure cookies: <a target="_blank" href="https://httpsecurityreport.com/">Security Report.</a></p>
                         </li>
                     </ol>
 
