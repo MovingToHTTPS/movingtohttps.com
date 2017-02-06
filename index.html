@@ -485,7 +485,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                             <p v-if="platform == 'joomla'">In Joomla > System > Global Configuration > Server > Force SSL > Select Entire Site</p>
                             <p v-if="platform == 'magento'">In Magento > Admin > System > Configuration > General > Web > Secure > Select Yes for "Use Secure URLs in Frontend" &amp; "Use Secure URLs in Admin"</p>
                             <p v-if="platform == 'shopify'">In Shopfiy > Admin > Online Store > Domains > SSL certificates > click "Activate SSL certificates"</p>
-                            <p v-if="platform == ''">Check if your platform/site has a settings area for the default URL or a switch for using SSL.</p>
+                            <p v-if="platform == '' || platform == 'php'">Check if your platform/site has a settings area for the default URL or a switch for using SSL.</p>
                         </li>
                         <li>
                             <h3>Check common files use HTTPS</h3>
