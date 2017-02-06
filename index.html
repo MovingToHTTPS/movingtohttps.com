@@ -159,7 +159,7 @@
                     <ol v-show="showArea.preMove">
                         <li>
                             <h3>Select an SSL certificate</h3>
-                            <p>As most SSL providers now supply a 2048-bit key or higher by default, you're first question really is, what sort of certificate do you want?</p>
+                            <p>As most SSL providers now supply a 2048-bit key or higher by default, your first question really is, what sort of certificate do you want?</p>
                             <p>There are 3 main types of certificates you can choose from for your site:</p>
                             <ul>
                                 <li>Domain Validation <em>(DV)</em>
@@ -230,11 +230,11 @@
                         </li>
                         <li>
                             <h3>Do you plan to move your entire site or just specific areas first?</h3>
-                            <p>If you can, moving your entire site. It means more work up front but given the SEO benefits and knowledge that your entire site is encrypted for users is worth it.</p>
+                            <p>If you can, moving your entire site. It means more work upfront but given the SEO benefits and knowledge that your entire site is encrypted for users is worth it.</p>
                             <p>However, not all sites are able to do this at one, at the very least you'll need to setup HTTPS for any login forms, payment pages and any pages that require or reveal user details.</p>
                         </li>
                         <li>
-                            <h3>Does you site have multiple variations?</h3>
+                            <h3>Does your site have multiple variations?</h3>
                             <p>During the migration you'll need to be aware of all variations of your site such as multiple languages or location based changes or even AB tests in progress? During the mixed content fixing step you'll need to check all variations.</p>
                         </li>
                         <li v-if="hosting != 'cloudflare'">
@@ -350,7 +350,7 @@
                             <p>Any issues shown in your browser? no? brilliant!</p>
                             <p>However, if you do see an error message, the message may point you in the right direction, but <a target="_blank" href="https://www.ssllabs.com/ssltest/">SSLLabs</a> can be used here to check and diagnose the issue.</p>
                             <p v-if="control == 'max'"><em>If needed, <a target="_blank" href="https://maulwuff.de/research/ssl-debugging.html">this article</a> can be very useful in debugging typical SSL issues, though the post is fairly technical.</em></p>
-                            <p>You hopefully wont see a full page error screen, though you may find you don't have a green lock / HTTPS indicator in the URL bar. Which brings us onto the next subject, fixing insecure / mixed content issues.</p>
+                            <p>You hopefully won't see a full page error screen, though you may find you don't have a green lock / HTTPS indicator in the URL bar. Which brings us onto the next subject, fixing insecure / mixed content issues.</p>
                         </li>
                         <li>
                             <h3>Find mixed content</h3>
@@ -358,7 +358,7 @@
                             <p>There are 2 types of mixed content, the first is active mixed content, things like javascript files that could change the content of the page if intercepted by a <a target="_blank" href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle</a>. This is often blocked in browsers but can leave parts of your site broken because of this.
                             <br>The other type is passive mixed content, such as images, which are less dangerous, but still an issue and though not blocked in the browser, having these will replace your green HTTPS &amp; lock symbol with a grey version indicating it's over HTTPS but has issues.</p>
 
-                            <p>There are a few ways to find mixed content on your site, the simplest is to load up pages and use your browsers developer tools to see warnings. But doing this over an entire site would likely be either very slow or impossible.</p>
+                            <p>There are a few ways to find mixed content on your site, the simplest is to load up pages and use your browser's developer tools to see warnings. But doing this over an entire site would likely be either very slow or impossible.</p>
 
                             <p>Instead, the main ways sites are normally checked are through:</p>
                             <ol>
@@ -371,7 +371,7 @@
                                     <template v-else>
                                         It's usually a regarded as the more complete option as it catches any ajax issues that crawling may not find, though it requires you first have users visiting pages with mixed content on to report them. It also only works if you have access to modify the HTTP response headers of your site, plugins can often accomplish this though.
                                         <br>
-                                        CSP violations can be sent back to a central server for you to monitor them and recieve alerts, here's a few examples:
+                                        CSP violations can be sent back to a central server for you to monitor them and receive alerts, here's a few examples:
                                         <ul>
                                             <li>
                                                 <a target="_blank" href="https://report-uri.io/">Report URI</a>
@@ -407,7 +407,7 @@
                                     </ul>
                                 </li>
                                 <li v-if="platform == 'wordpress'">
-                                    There are some Wordpress plugins dedicated to HTTPS migration help, these will also assit in the following steps so worth checking them out before continuing.
+                                    There are some Wordpress plugins dedicated to HTTPS migration help, these will also assist in the following steps so worth checking them out before continuing.
                                     <br>
                                     For Wordpress sites, these are usually our recommended way to go, but could be combined with the tools above to be extra safe.
                                     <ul>
@@ -501,7 +501,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                         </li>
                         <li>
                             <h3>Update 3rd party analytics &amp; other links</h3>
-                            <p>Some 3rd party tracking sites require you either update the tracked origin URL or setup a new account for monitoring.</p>
+                            <p>Some 3rd party tracking sites require you either update the tracked origin URL or set up a new account for monitoring.</p>
                             <p>Here's a few examples, but worth doing a quick audit of any 3rd party tools you use:</p>
                             <ul>
                                 <li>Google Search Console (Webmaster Tools) - Requires you setup a new account, this allows you to monitor traffic still in Google's index hitting the HTTP version first vs the HTTPS version of your site. This means any settings including Sitemaps &amp; Disavow files will need to be uploaded to the new account.</li>
@@ -568,7 +568,7 @@ Header set Strict-Transport-Security "max-age=15768000;"
                         </li>
                         <li>
                             <h3>Update links on social media etc.</h3>
-                            <p>Though you've setup all your redirects, it's still best to try to send users direct to the HTTPS version without need to go through these redirects.</p>
+                            <p>Though you've set up all your redirects, it's still best to try to send users direct to the HTTPS version without need to go through these redirects.</p>
                         </li>
                         <li>
                             <h3>Aim for A+ on SSLLabs</h3>
@@ -577,7 +577,7 @@ Header set Strict-Transport-Security "max-age=15768000;"
                         </li>
                         <li>
                             <h3>Consider preloading your HSTS</h3>
-                            <p>If you've previously setup your HSTS header, you could now opt to preload this into browsers before users even get to your site.</p>
+                            <p>If you've previously set up your HSTS header, you could now opt to preload this into browsers before users even get to your site.</p>
                             <p>To do this, visit the <a target="_blank" href="https://hstspreload.org/">HSTS preload list</a> site to submit your site.</p>
                         </li>
                         <li>
@@ -586,7 +586,7 @@ Header set Strict-Transport-Security "max-age=15768000;"
                         </li>
                     </ol>
 
-                    <p><small>Disclaimer: This site is provided under the <a target="_blank" href="https://mit-license.org/">MIT licence</a> and available on <a target="_blank" href="https://github.com/MovingtoHTTPS">GitHub</a>. All content is provided as a resource to aide migration only. Following it in no way leaves the project or it's authors liable.</small></p>
+                    <p><small>Disclaimer: This site is provided under the <a target="_blank" href="https://mit-license.org/">MIT licence</a> and available on <a target="_blank" href="https://github.com/MovingtoHTTPS">GitHub</a>. All content is provided as a resource to aid migration only. Following it in no way leaves the project or it's authors liable.</small></p>
                     <p><small>Found an issue or want to contribute changes? <a target="_blank" href="https://github.com/MovingToHTTPS/movingtohttps.com">Fork us on Github</a> or <a target="_blank" href="https://github.com/MovingToHTTPS/movingtohttps.com/issues">open an issue</a>.</small></p>
 
                 </main>
