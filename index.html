@@ -58,8 +58,8 @@
                 <div class="about-site block">
                     <p>A community site to help site owners migrate to HTTPS with a simple tested process. Allowing you to filter the plan based on multiple platforms (<a href="/?platform=wordpress">Wordpress</a>, <a href="/?platform=magento">Magento</a>, and more), hosting environments (<a href="/?hosting=cpanel">cPanel</a>, <a href="/?hosting=apache">Apache</a>, and more) along with the level of control / access you have over the site.</p>
                     <p>Are you migrating your site from HTTP to HTTPS?
-                        <a target="_blank" href="https://twitter.com/hashtag/movingtoHTTPS">#movingtoHTTPS</a></p>
-                    <p>Looking to contribute? All code is available on <a target="_blank" href="https://github.com/MovingtoHTTPS">GithHub</a>!</p>
+                        <a rel="noopener" target="_blank" href="https://twitter.com/hashtag/movingtoHTTPS">#movingtoHTTPS</a></p>
+                    <p>Looking to contribute? All code is available on <a rel="noopener" target="_blank" href="https://github.com/MovingtoHTTPS">GithHub</a>!</p>
 
                     <!-- Google Translate will show here -->
                     <div id="google_translate_element"></div>
@@ -191,11 +191,11 @@
                             <p>Another consideration is do you need this certificate for a single domain/subdomain or for multiple. There are single domain, multi domain and wildcard (all subdomains) certificates available from most SSL providers, though Let's Encrypt &amp; Cloudflare require you setup each subdomain separately.</p>
 
                             <p>If you're just looking to secure your main domain a 1 or 2 DV certificates will work perfectly.
-                                <br>Free DV certificates are available with <a target="_blank" href="https://www.cloudflare.com/">Cloudflare</a>
+                                <br>Free DV certificates are available with <a rel="noopener" target="_blank" href="https://www.cloudflare.com/">Cloudflare</a>
                                 <template v-if="control == 'max'">
-                                and <a target="_blank" href="https://letsencrypt.org/">Let's Encrypt</a>.</template>
-                                <br>Many sites such as <a target="_blank" href="https://www.ssls.com/">SSLs.com</a>
-                                    <template v-if="control == 'max'"> or <a target="_blank" href="https://sslmate.com/">SSLmate</a></template> offer certificates.
+                                and <a rel="noopener" target="_blank" href="https://letsencrypt.org/">Let's Encrypt</a>.</template>
+                                <br>Many sites such as <a rel="noopener" target="_blank" href="https://www.ssls.com/">SSLs.com</a>
+                                    <template v-if="control == 'max'"> or <a rel="noopener" target="_blank" href="https://sslmate.com/">SSLmate</a></template> offer certificates.
                             </p>
 
                             <p>If you're interested in an OV or EV certificate, best to go ahead and purchase these in advance as they can take several days to be issued. They will also require proof of the organization's existence. But if you're selecting a DV certificate then you can wait till the moving day.</p>
@@ -204,7 +204,7 @@
 
                             <p>Once you've selected the certificate you're interested in you can move on to start migrating, but consider the following points to make sure you don't miss anything.</p>
 
-                            <p v-if="hosting == 'cloudflare'">Cloudflares free certificate covers multiple subdomains but wildcard support is restricted to their Business plan. The certificates also <a target="_blank" href="https://support.cloudflare.com/hc/en-us/articles/203041594-What-browsers-work-with-CloudFlare-s-SSL-certificates-">do not support</a> old browser/OS combinations such as Windows XP or OS X 10.5 or less.</p>
+                            <p v-if="hosting == 'cloudflare'">Cloudflares free certificate covers multiple subdomains but wildcard support is restricted to their Business plan. The certificates also <a rel="noopener" target="_blank" href="https://support.cloudflare.com/hc/en-us/articles/203041594-What-browsers-work-with-CloudFlare-s-SSL-certificates-">do not support</a> old browser/OS combinations such as Windows XP or OS X 10.5 or less.</p>
                         </li>
                         <li>
                             <h3>Check to see if your hosting / provider already offers FREE SSL</h3>
@@ -226,8 +226,8 @@
                         <li>
                             <h3>How will you track changes</h3>
                             <p>In the event that the migration causes some short term disruptions in traffic and/or search rank, you'll want stats to fall back on and provide visibility of what exactly changed.</p>
-                            <p>If you haven't already, setup <a target="_blank" href="https://www.google.co.uk/analytics/">Google Analytics</a> or a similar service and let it run for at least a week to get a good idea of current traffic &amp; behaviour.</p>
-                            <p>It's also worth making sure you have <a target="_blank" href="https://www.google.com/webmasters/">Google Search Console</a> (Webmaster tools) setup to track indexed pages and keywords used to find your site along with average position. You may also want to check out <a target="_blank" href="http://www.bing.com/toolbox/webmaster">Bing's Webmaster Tools</a>.</p>
+                            <p>If you haven't already, setup <a rel="noopener" target="_blank" href="https://www.google.co.uk/analytics/">Google Analytics</a> or a similar service and let it run for at least a week to get a good idea of current traffic &amp; behaviour.</p>
+                            <p>It's also worth making sure you have <a rel="noopener" target="_blank" href="https://www.google.com/webmasters/">Google Search Console</a> (Webmaster tools) setup to track indexed pages and keywords used to find your site along with average position. You may also want to check out <a rel="noopener" target="_blank" href="http://www.bing.com/toolbox/webmaster">Bing's Webmaster Tools</a>.</p>
                         </li>
                         <li>
                             <h3>Consider making some changes pre migration</h3>
@@ -264,11 +264,11 @@
                             <!-- Using let's encrypt -->
 
                             <p v-if="control == 'max' && hosting != 'cloudflare'">
-                                If you're looking to use Let's Encrypt's free certificates and you'll be installing the certificates over SSH then <a target="_blank" href="https://certbot.eff.org/">Certbot</a> will walk you through this &amp; setting up automatic renewals.
+                                If you're looking to use Let's Encrypt's free certificates and you'll be installing the certificates over SSH then <a rel="noopener" target="_blank" href="https://certbot.eff.org/">Certbot</a> will walk you through this &amp; setting up automatic renewals.
                             </p>
 
                             <template v-if="hosting == 'cpanel'">
-                                <p>cPanel now offer a <a target="_blank" href="https://blog.cpanel.com/announcing-cpanel-whms-official-lets-encrypt-with-autossl-plugin/">plugin</a> that adds let's encrypt support.</p>
+                                <p>cPanel now offer a <a rel="noopener" target="_blank" href="https://blog.cpanel.com/announcing-cpanel-whms-official-lets-encrypt-with-autossl-plugin/">plugin</a> that adds let's encrypt support.</p>
                                 <blockquote>
                                     SSH into the server as root, then just run this command:
                                     <br>
@@ -279,7 +279,7 @@
                             </template>
 
                             <template v-if="hosting == 'plesk'">
-                                <p>Plesk now offer a <a target="_blank" href="https://www.plesk.com/blog/lets-encrypt-plesk/">plugin</a> that adds let's encrypt support.</p>
+                                <p>Plesk now offer a <a rel="noopener" target="_blank" href="https://www.plesk.com/blog/lets-encrypt-plesk/">plugin</a> that adds let's encrypt support.</p>
                                 <blockquote>
                                     Install the Let’s Encrypt extension via the Extension Catalog:
                                     <br>
@@ -315,9 +315,9 @@
                                 </template>
 
                                 <template v-else>
-                                    <p><a target="_blank" href="https://www.digicert.com/csr-creation.htm">Digicert have a useful support page</a> listing multiple platforms &amp; operating systems each linking off to how to generate your CSR.
-                                    <br>Also <a target="_blank" href="https://uk.godaddy.com/help/ssl-certificates-1000006">GoDaddy have great documentation</a> on this as well.
-                                    <br>These also include generating the private key at the same time. E.g. Digicert offer a <a target="_blank" href="https://www.digicert.com/easy-csr/openssl.htm">OpenSSL CSR Creation</a> which generates a command you can run via ssh which generates both the CSR and private key file.</p>
+                                    <p><a rel="noopener" target="_blank" href="https://www.digicert.com/csr-creation.htm">Digicert have a useful support page</a> listing multiple platforms &amp; operating systems each linking off to how to generate your CSR.
+                                    <br>Also <a rel="noopener" target="_blank" href="https://uk.godaddy.com/help/ssl-certificates-1000006">GoDaddy have great documentation</a> on this as well.
+                                    <br>These also include generating the private key at the same time. E.g. Digicert offer a <a rel="noopener" target="_blank" href="https://www.digicert.com/easy-csr/openssl.htm">OpenSSL CSR Creation</a> which generates a command you can run via ssh which generates both the CSR and private key file.</p>
                                 </template>
 
                             </template>
@@ -341,7 +341,7 @@
                             <template v-else>
 
                                 <template v-if="control == 'max'">
-                                    <p>Using the <a target="_blank" href="https://mozilla.github.io/server-side-tls/ssl-config-generator/">Mozilla SSL Configuration Generator</a> you can build the config needed to add to your server config files. e.g. if using Apache2 you'll need to either change your .htaccess or apache.conf file.</p>
+                                    <p>Using the <a rel="noopener" target="_blank" href="https://mozilla.github.io/server-side-tls/ssl-config-generator/">Mozilla SSL Configuration Generator</a> you can build the config needed to add to your server config files. e.g. if using Apache2 you'll need to either change your .htaccess or apache.conf file.</p>
                                     <p>Then upload the certificates to the paths shown in the config, e.g. <code>/path/to/signed_certificate</code></p>
                                     <p>This tool also adds the HSTS (Strict-Transport-Security) header to the config, you could choose to add this now, but we'd advise holding onto that part for now and adding it in later which we will go over later in the guide.</p>
                                 </template>
@@ -357,14 +357,14 @@
                             <p>First check, before any others, load the site up in your browser (make sure to load the HTTPS version).</p>
                             <p v-if="hosting == 'cloudflare'">It may take a few minutes for Cloudflare to provision your certificate. You can check on this progress in the Crypto tab > SSL > under the drop down it will say "Active Certificate" once complete.</p>
                             <p>Any issues shown in your browser? no? brilliant!</p>
-                            <p>However, if you do see an error message, the message may point you in the right direction, but <a target="_blank" href="https://www.ssllabs.com/ssltest/">SSLLabs</a> can be used here to check and diagnose the issue.</p>
-                            <p v-if="control == 'max'"><em>If needed, <a target="_blank" href="https://maulwuff.de/research/ssl-debugging.html">this article</a> can be very useful in debugging typical SSL issues, though the post is fairly technical.</em></p>
+                            <p>However, if you do see an error message, the message may point you in the right direction, but <a rel="noopener" target="_blank" href="https://www.ssllabs.com/ssltest/">SSLLabs</a> can be used here to check and diagnose the issue.</p>
+                            <p v-if="control == 'max'"><em>If needed, <a rel="noopener" target="_blank" href="https://maulwuff.de/research/ssl-debugging.html">this article</a> can be very useful in debugging typical SSL issues, though the post is fairly technical.</em></p>
                             <p>You hopefully won't see a full page error screen, though you may find you don't have a green lock / HTTPS indicator in the URL bar. Which brings us onto the next subject, fixing insecure / mixed content issues.</p>
                         </li>
                         <li>
                             <h3>Find mixed content</h3>
                             <p>Mixed content is when you have assets/resources on pages that try to load over HTTP instead of HTTPS. This affects images, scripts, css and more.</p>
-                            <p>There are 2 types of mixed content, the first is active mixed content, things like javascript files that could change the content of the page if intercepted by a <a target="_blank" href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle</a>. This is often blocked in browsers but can leave parts of your site broken because of this.
+                            <p>There are 2 types of mixed content, the first is active mixed content, things like javascript files that could change the content of the page if intercepted by a <a rel="noopener" target="_blank" href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle</a>. This is often blocked in browsers but can leave parts of your site broken because of this.
                             <br>The other type is passive mixed content, such as images, which are less dangerous, but still an issue and though not blocked in the browser, having these will replace your green HTTPS &amp; lock symbol with a grey version indicating it's over HTTPS but has issues.</p>
 
                             <p>There are a few ways to find mixed content on your site, the simplest is to load up pages and use your browser's developer tools to see warnings. But doing this over an entire site would likely be either very slow or impossible.</p>
@@ -383,18 +383,18 @@
                                         CSP violations can be sent back to a central server for you to monitor them and receive alerts, here's a few examples:
                                         <ul>
                                             <li>
-                                                <a target="_blank" href="https://report-uri.io/">Report URI</a>
+                                                <a rel="noopener" target="_blank" href="https://report-uri.io/">Report URI</a>
                                                 - Offers free hosted CSP collection, great graphs and tools to build a CSP header.
                                             </li>
                                             <li>
-                                                <a target="_blank" href="https://httpschecker.net/guides/https-reporter">HTTPS Reporter</a>
+                                                <a rel="noopener" target="_blank" href="https://httpschecker.net/guides/https-reporter">HTTPS Reporter</a>
                                                 - Paid CSP hosting, provides you with a prebuilt CSP header designed just to catch mixed content issues ready to set up on your site.
                                             </li>
                                             <li>
-                                                <a target="_blank" href="https://github.com/c0nrad/caspr">Caspr the friendly CSP Report Aggregator</a> - <em>Though no longer under active development</em>, this is an open source CSP service you can run on Heroku.
+                                                <a rel="noopener" target="_blank" href="https://github.com/c0nrad/caspr">Caspr the friendly CSP Report Aggregator</a> - <em>Though no longer under active development</em>, this is an open source CSP service you can run on Heroku.
                                             </li>
                                             <li v-if="control == 'max'">
-                                                Or you could <a target="_blank" href="https://mathiasbynens.be/notes/csp-reports">build a script yourself</a> to collect your CSP reports.
+                                                Or you could <a rel="noopener" target="_blank" href="https://mathiasbynens.be/notes/csp-reports">build a script yourself</a> to collect your CSP reports.
                                             </li>
                                         </ul>
                                     </template>
@@ -404,15 +404,15 @@
                                     <br>
                                     These crawling tools work with any site as they are run externally. Here are some examples:
                                     <ul>
-                                        <li><a target="_blank" href="https://httpschecker.net/guides/https-checker">HTTPS Checker</a> is a desktop app (available on Windows, Mac OS X &amp; Ubuntu Linux) to crawl a site for mixed content and related issues.</li>
-                                        <li v-if="control != 'min'"><a target="_blank" href="https://github.com/bramus/mixed-content-scan">Mixed Content Scan</a> by Bramus is a command line php script that will crawl a given site for mixed content issues.</li>
-                                        <li><a target="_blank" href="https://www.jitbit.com/sslcheck/">SSL Check</a> by JitBit offers a quick online tool to find mixed content <em>- though is limited to 200 crawled URLs</em>.</li>
+                                        <li><a rel="noopener" target="_blank" href="https://httpschecker.net/guides/https-checker">HTTPS Checker</a> is a desktop app (available on Windows, Mac OS X &amp; Ubuntu Linux) to crawl a site for mixed content and related issues.</li>
+                                        <li v-if="control != 'min'"><a rel="noopener" target="_blank" href="https://github.com/bramus/mixed-content-scan">Mixed Content Scan</a> by Bramus is a command line php script that will crawl a given site for mixed content issues.</li>
+                                        <li><a rel="noopener" target="_blank" href="https://www.jitbit.com/sslcheck/">SSL Check</a> by JitBit offers a quick online tool to find mixed content <em>- though is limited to 200 crawled URLs</em>.</li>
                                     </ul>
                                 </li>
                                 <li v-if="hosting == 'cloudflare'">
                                     Automatic replacing content live as it's sent from Cloudflare to users browsers with "Automatic HTTPS Rewrites" - This is an experimental new feature inside Cloudflare that replaces links to HTTP resources with HTTPS where possible, though you may still have content that loads over HTTP is a HTTPS version isn't available, but this can certainly ease the pain.
                                     <ul>
-                                        <li><a target="_blank" href="https://blog.cloudflare.com/fixing-the-mixed-content-problem-with-automatic-https-rewrites/">Read more here</a></li>
+                                        <li><a rel="noopener" target="_blank" href="https://blog.cloudflare.com/fixing-the-mixed-content-problem-with-automatic-https-rewrites/">Read more here</a></li>
                                     </ul>
                                 </li>
                                 <li v-if="platform == 'wordpress'">
@@ -420,8 +420,8 @@
                                     <br>
                                     For Wordpress sites, these are usually our recommended way to go, but could be combined with the tools above to be extra safe.
                                     <ul>
-                                        <li><a target="_blank" href="https://wordpress.org/plugins/really-simple-ssl/">Really Simple SSL</a></li>
-                                        <li><a target="_blank" href="https://wordpress.org/plugins/ssl-insecure-content-fixer/">SSL Insecure Content Fixer</a></li>
+                                        <li><a rel="noopener" target="_blank" href="https://wordpress.org/plugins/really-simple-ssl/">Really Simple SSL</a></li>
+                                        <li><a rel="noopener" target="_blank" href="https://wordpress.org/plugins/ssl-insecure-content-fixer/">SSL Insecure Content Fixer</a></li>
                                     </ul>
                                 </li>
                             </ol>
@@ -444,7 +444,7 @@
                             <p>Sometimes a HTTPS version of something may not yet be available, in this case you could download the resource and host it yourself on your newly HTTPS site.</p>
 
                             <p v-if="control == 'max'">
-                                Another option to help the migration process is to use the CSP header of "upgrade-insecure-requests" <a target="_blank" href="http://caniuse.com/#feat=upgradeinsecurerequests">(Browser support is fairly good and improving)</a>. You can <a target="_blank" href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content#upgrading_insecure_requests">read more about this here</a>.
+                                Another option to help the migration process is to use the CSP header of "upgrade-insecure-requests" <a rel="noopener" target="_blank" href="http://caniuse.com/#feat=upgradeinsecurerequests">(Browser support is fairly good and improving)</a>. You can <a rel="noopener" target="_blank" href="https://developers.google.com/web/fundamentals/security/prevent-mixed-content/fixing-mixed-content#upgrading_insecure_requests">read more about this here</a>.
                                 This is probably the nicest way to do it, but requires the resource actually have a HTTPS version available, so worth checking or reporting these issues too.
                             </p>
                             <p v-if="control == 'max'">
@@ -525,7 +525,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                                 <li>Google Adwords - Update any Ad URLs to use HTTPS</li>
                                 <li>Bing Webmaster Tools - Like with Google, you'll need to create a new account for the HTTPs version of your site</li>
                             </ul>
-                            <p>It's worth reviewing your site for more of these as some you might not expect need updating such as: <a target="_blank" href="https://woorkup.com/migrate-disqus-comments-https/">Disqus comments</a> which uses the current url as the page the comments are tied to. As well as 3rd party Ads on sites like Twitter &amp; Facebook.</p>
+                            <p>It's worth reviewing your site for more of these as some you might not expect need updating such as: <a rel="noopener" target="_blank" href="https://woorkup.com/migrate-disqus-comments-https/">Disqus comments</a> which uses the current url as the page the comments are tied to. As well as 3rd party Ads on sites like Twitter &amp; Facebook.</p>
                         </li>
                         <li>
                             <h3>Last step, purge caches</h3>
@@ -588,17 +588,17 @@ Header set Strict-Transport-Security "max-age=15768000;"
                         </li>
                         <li>
                             <h3>Aim for A+ on SSLLabs</h3>
-                            <p><a target="_blank" href="https://www.ssllabs.com/ssltest/">SSLLabs</a> will give you useful information on your SSL/TLS implementation and any issues found. It'll also give you recommendations to improve it if any are noticed.</p>
+                            <p><a rel="noopener" target="_blank" href="https://www.ssllabs.com/ssltest/">SSLLabs</a> will give you useful information on your SSL/TLS implementation and any issues found. It'll also give you recommendations to improve it if any are noticed.</p>
                             <p>This is within reach especially if you've setup your HSTS header in the post-move stage.</p>
                         </li>
                         <li>
                             <h3>Consider preloading your HSTS</h3>
                             <p>If you've previously set up your HSTS header, you could now opt to preload this into browsers before users even get to your site.</p>
-                            <p>To do this, visit the <a target="_blank" href="https://hstspreload.org/">HSTS preload list</a> site to submit your site.</p>
+                            <p>To do this, visit the <a rel="noopener" target="_blank" href="https://hstspreload.org/">HSTS preload list</a> site to submit your site.</p>
                         </li>
                         <li>
                             <h3>Iron out other similar security actions</h3>
-                            <p>Similar to SSL test earlier, this report will show some other recommendations such as use of secure cookies: <a target="_blank" href="https://httpsecurityreport.com/">Security Report.</a></p>
+                            <p>Similar to SSL test earlier, this report will show some other recommendations such as use of secure cookies: <a rel="noopener" target="_blank" href="https://httpsecurityreport.com/">Security Report.</a></p>
                         </li>
                         <li>
                             <h3>Enable HTTP/2 support</h3>
@@ -606,8 +606,8 @@ Header set Strict-Transport-Security "max-age=15768000;"
                         </li>
                     </ol>
 
-                    <p><small>Disclaimer: This site is provided under the <a target="_blank" href="https://mit-license.org/">MIT licence</a> and available on <a target="_blank" href="https://github.com/MovingtoHTTPS">GitHub</a>. All content is provided as a resource to aid migration only. Following it in no way leaves the project or it's authors liable.</small></p>
-                    <p><small>Found an issue or want to contribute changes? <a target="_blank" href="https://github.com/MovingToHTTPS/movingtohttps.com">Fork us on Github</a> or <a target="_blank" href="https://github.com/MovingToHTTPS/movingtohttps.com/issues">open an issue</a>.</small></p>
+                    <p><small>Disclaimer: This site is provided under the <a rel="noopener" target="_blank" href="https://mit-license.org/">MIT licence</a> and available on <a rel="noopener" target="_blank" href="https://github.com/MovingtoHTTPS">GitHub</a>. All content is provided as a resource to aid migration only. Following it in no way leaves the project or it's authors liable.</small></p>
+                    <p><small>Found an issue or want to contribute changes? <a rel="noopener" target="_blank" href="https://github.com/MovingToHTTPS/movingtohttps.com">Fork us on Github</a> or <a rel="noopener" target="_blank" href="https://github.com/MovingToHTTPS/movingtohttps.com/issues">open an issue</a>.</small></p>
 
                 </main>
 
