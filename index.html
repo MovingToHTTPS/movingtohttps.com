@@ -169,7 +169,8 @@
                                 <li>Domain Validation <em>(DV)</em>
                                     <ul>
                                         <li>Standard SSL (Just as secure as other options).</li>
-                                        <li>Free via Let's Encrypt &amp; Cloudflare, or purchase available.</li>
+                                        <li v-if="hosting == 'caddy'">Caddy has this built in for free with it's <a rel="noopener" target="_blank" href="https://caddyserver.com/docs/automatic-https">automatic HTTPS</a> feature!</li>
+                                        <li v-else>Free via Let's Encrypt &amp; Cloudflare, or purchase available.</li>
                                         <li>Normally issued in minutes.</li>
                                     </ul>
                                 </li>
@@ -204,13 +205,11 @@
 
                             <p>If you're interested in an OV or EV certificate, best to go ahead and purchase these in advance as they can take several days to be issued. They will also require proof of the organization's existence. But if you're selecting a DV certificate then you can wait till the moving day.</p>
 
-                            <!--  -->
-
                             <p>Once you've selected the certificate you're interested in you can move on to start migrating, but consider the following points to make sure you don't miss anything.</p>
 
                             <p v-if="hosting == 'cloudflare'">Cloudflares free certificate covers multiple subdomains but wildcard support is restricted to their Business plan. The certificates also <a rel="noopener" target="_blank" href="https://support.cloudflare.com/hc/en-us/articles/203041594-What-browsers-work-with-CloudFlare-s-SSL-certificates-">do not support</a> old browser/OS combinations such as Windows XP or OS X 10.5 or less.</p>
                         </li>
-                        <li>
+                        <li v-if="hosting != 'caddy'">
                             <h3>Check to see if your hosting / provider already offers FREE SSL</h3>
                             <p>Though this is not yet the norm, as HTTPS becomes the default for a lot of sites, providers are starting to offer SSL included with hosting packages. It's worth contacting them to be sure.</p>
                         </li>
@@ -228,7 +227,7 @@
                             <p>For example, if you're site has a separate marketing person or team, let them know what will be changing. Later on we'll be updating 3rd party links and they may need to be aware of the changes and make changes of their own.</p>
                         </li>
                         <li>
-                            <h3>How will you track changes</h3>
+                            <h3>How will you track changes?</h3>
                             <p>In the event that the migration causes some short term disruptions in traffic and/or search rank, you'll want stats to fall back on and provide visibility of what exactly changed.</p>
                             <p>If you haven't already, setup <a rel="noopener" target="_blank" href="https://www.google.co.uk/analytics/">Google Analytics</a> or a similar service and let it run for at least a week to get a good idea of current traffic &amp; behaviour.</p>
                             <p>It's also worth making sure you have <a rel="noopener" target="_blank" href="https://www.google.com/webmasters/">Google Search Console</a> (Webmaster tools) setup to track indexed pages and keywords used to find your site along with average position. You may also want to check out <a rel="noopener" target="_blank" href="http://www.bing.com/toolbox/webmaster">Bing's Webmaster Tools</a>.</p>
@@ -264,6 +263,11 @@
                             <h3>Get the certificate</h3>
                             <p>At this point, if you haven't previously got your SSL certificate, now is the time to do so.
                                 <br>Already have your certificate? Skip this step and proceed to installing it.</p>
+
+                            <p v-if="hosting == 'caddy'">
+                                Caddy comes with free HTTPS via Let's Encrypt without you having to do a thing. To use you can skip ahead to step 3. But if you want to buy a certificate (e.g. an EV certificate) you certainly can use that instead.
+                            </p>
+                            <template v-else>
 
                             <!-- Using let's encrypt -->
 
@@ -301,9 +305,11 @@
                                 <br>Once signed up and your site is running through Cloudflare, you could opt to use the Pro plan which offers older browser support for SSL.
                             </p>
 
+                            </template>
+
                             <template v-if="control != 'min' && hosting != 'cloudflare'">
 
-                                <p>In order to purchase a certificate through any 3rd party you will need to generate a Private Key &amp; a Certificate Signing Request (CSR) on your web server. They will only need the CSR but the private key is needed on your server.</p> <p>The site you're purchasing from should guide you through this, but in case:</p>
+                                <p>In order to purchase a certificate through any 3rd party you will need to generate a Private Key &amp; a Certificate Signing Request (CSR) on your web server. They will only need the CSR but the private key is needed on your server.</p> <p>The site you're purchasing from should guide you through this, but just in case:</p>
 
                                 <template v-if="hosting == 'cpanel'">
                                     <p>Inside your cPanel account > Security > SSL/TLS Manager</p>
@@ -331,7 +337,14 @@
                         <li v-if="hosting != 'cloudflare'">
                             <h3>Install the certificate</h3>
 
-                            <p v-if="hosting == 'cpanel'">
+                            <p v-if="hosting == 'caddy'">
+                                If your installing a custom certificate to your Caddy server, all you need to do is reference the new certificate and private key file in your Caddyfile like so:
+                                <br>
+                                <code>tls ../cert.pem ../key.pem</code>
+                                <br><a rel="noopener" target="_blank" href="https://caddyserver.com/docs/tls">More details here</a>.
+                            </p>
+
+                            <p v-else-if="hosting == 'cpanel'">
                                 Inside your cPanel account > SSL/TLS Manager > "Generate, view, upload, or delete SSL certificates" > "Upload a New Certificate" > paste or upload the .crt file here &amp; click Upload.
                                 <br>Click Go Back > Return to SSL Manager > Setup a SSL certificate to work with your site > Select the domain &amp; this should fetch the certificate &amp; key for you, but if this option doesn't show or doesn't work you may need to contact your hosting provider / support. Under the certificate &amp; key there should now be a 3rd box for Ca Bundle where you'll need to paste you bundle file. Click Install Certificate &amp; your done.
                                 <br>Now you just need to restart Apache for it to take effect.
@@ -468,6 +481,9 @@
                             <h3>Setup HTTP to HTTPS redirect</h3>
                             <p>In order to make sure users reach the HTTPS version of your site you can use a 301 redirect and send all requests to the HTTPS version.</p>
 
+                            <p v-if="hosting == 'caddy'">Luckily Caddy takes care of this for you, just test it works and move along.</p>
+                            <template v-else>
+
                             <p v-if="platform == 'wordpress'">The Really Simple SSL wordpress plugin mentioned above handles this redirect for you.</p>
 
                             <p v-if="hosting == 'cloudflare'">For Cloudflare you can setup a page rule to redirect all traffic to HTTPS: Page Rules > Create Page Rule > Enter your site like so: http://*movingtohttps.com/* then "+ Add a Setting" and select "Always Use HTTPS".</p>
@@ -491,6 +507,8 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
 
                             <p>After setting this redirect up it's important to test it doesn't just send users to the homepage, but rather it redirect any request path to the same path but over HTTPS. E.g. http://site.com/info/contact.html redirects to https://site.com/info/contact.html.</p>
                             <p>If you're site redirects non-www traffic to the www version, or vise versa, make sure to update these redirects too so you don't end up with double or more redirect steps.</p>
+
+                            </template>
 
                         </li>
                         <li>

@@ -23,6 +23,7 @@ new Vue({
                 'plesk': 'Plesk',
                 'apache': 'Apache',
                 'nginx': 'Nginx',
+                'caddy': 'Caddy',
                 '': 'Other / Unknown'
             },
             control: {
