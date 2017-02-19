@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="about-site block">
-                    <p>A community site to help site owners migrate to HTTPS with a simple tested process. Allowing you to filter the plan based on multiple platforms (<a href="/?platform=wordpress">Wordpress</a>, <a href="/?platform=magento">Magento</a>, and more), hosting environments (<a href="/?hosting=cpanel">cPanel</a>, <a href="/?hosting=apache">Apache</a>, and more) along with the level of control / access you have over the site.</p>
+                    <p>A community site to help site owners migrate to HTTPS with a simple tested process. Allowing you to filter the plan based on multiple platforms (<a href="/?platform=wordpress">WordPress</a>, <a href="/?platform=magento">Magento</a>, and more), hosting environments (<a href="/?hosting=cpanel">cPanel</a>, <a href="/?hosting=apache">Apache</a>, and more) along with the level of control / access you have over the site.</p>
                     <p>Are you migrating your site from HTTP to HTTPS?
                         <a rel="noopener" target="_blank" href="https://twitter.com/hashtag/movingtoHTTPS">#movingtoHTTPS</a></p>
                     <p>Looking to contribute? All code is available on <a rel="noopener" target="_blank" href="https://github.com/MovingtoHTTPS">GitHub</a>!</p>
@@ -433,9 +433,9 @@
                                     </ul>
                                 </li>
                                 <li v-if="platform == 'wordpress'">
-                                    There are some Wordpress plugins dedicated to HTTPS migration help, these will also assist in the following steps so worth checking them out before continuing.
+                                    There are some WordPress plugins dedicated to HTTPS migration help, these will also assist in the following steps so worth checking them out before continuing.
                                     <br>
-                                    For Wordpress sites, these are usually our recommended way to go, but could be combined with the tools above to be extra safe.
+                                    For WordPress sites, these are usually our recommended way to go, but could be combined with the tools above to be extra safe.
                                     <ul>
                                         <li><a rel="noopener" target="_blank" href="https://wordpress.org/plugins/really-simple-ssl/">Really Simple SSL</a></li>
                                         <li><a rel="noopener" target="_blank" href="https://wordpress.org/plugins/ssl-insecure-content-fixer/">SSL Insecure Content Fixer</a></li>
@@ -450,7 +450,7 @@
                             <h3>Fix mixed content</h3>
 
                             <p v-if="platform == 'wordpress'">
-                                The above Wordpress plugins can help fix issues, the following will help with areas you need to manually change though.
+                                The above WordPress plugins can help fix issues, the following will help with areas you need to manually change though.
                             </p>
 
                             <p>The essence of fixing mixed content issues is to replace links to HTTP resources with HTTPS.</p>
@@ -484,7 +484,7 @@
                             <p v-if="hosting == 'caddy'">Luckily Caddy takes care of this for you, just test it works and move along.</p>
                             <template v-else>
 
-                            <p v-if="platform == 'wordpress'">The Really Simple SSL wordpress plugin mentioned above handles this redirect for you.</p>
+                            <p v-if="platform == 'wordpress'">The Really Simple SSL WordPress plugin mentioned above handles this redirect for you.</p>
 
                             <p v-if="hosting == 'cloudflare'">For Cloudflare you can setup a page rule to redirect all traffic to HTTPS: Page Rules > Create Page Rule > Enter your site like so: http://*movingtohttps.com/* then "+ Add a Setting" and select "Always Use HTTPS".</p>
 
@@ -513,7 +513,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                         </li>
                         <li>
                             <h3>Change platform settings</h3>
-                            <p v-if="platform == 'wordpress'">In Wordpress > Settings > General > Update the "WordPress Address (URL)" and "Site Address (URL)" to be https:// instead of http://</p>
+                            <p v-if="platform == 'wordpress'">In WordPress > Settings > General > Update the "WordPress Address (URL)" and "Site Address (URL)" to be https:// instead of http://</p>
                             <p v-if="platform == 'joomla'">In Joomla > System > Global Configuration > Server > Force SSL > Select Entire Site</p>
                             <p v-if="platform == 'magento'">In Magento > Admin > System > Configuration > General > Web > Secure > Select Yes for "Use Secure URLs in Frontend" &amp; "Use Secure URLs in Admin"</p>
                             <p v-if="platform == 'shopify'">In Shopfiy > Admin > Online Store > Domains > SSL certificates > click "Activate SSL certificates"</p>
@@ -572,7 +572,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
 
                             <p>All that's needed for this is to add the "Strict-Transport-Security" to your site with a max age set to 6 months in seconds (15768000)</p>
 
-                            <p v-if="platform == 'wordpress'">The Really Simple SSL wordpress plugin mentioned above handles setting this up for you.</p>
+                            <p v-if="platform == 'wordpress'">The Really Simple SSL WordPress plugin mentioned above handles setting this up for you.</p>
 
                             <p v-if="hosting == 'nginx'">
                             Inside your nginx conf file, add the following inside the server block:<code>
