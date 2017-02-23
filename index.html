@@ -212,6 +212,7 @@
                         <li v-if="hosting != 'caddy'">
                             <h3>Check to see if your hosting / provider already offers FREE SSL</h3>
                             <p>Though this is not yet the norm, as HTTPS becomes the default for a lot of sites, providers are starting to offer SSL included with hosting packages. It's worth contacting them to be sure.</p>
+                            <p v-if="platform == 'rec'">REC offers both free and paid SSL via Let's Encrypt &amp; Cloudflare.</p>
                         </li>
                         <li>
                             <h3>Do you have a test site?</h3>
@@ -355,6 +356,10 @@
                                 <br>Now you just need to restart Apache for it to take effect.
                             </p>
 
+                            <p v-else-if="platform == 'rec'">
+                                For REC, please <a href="https://support.reallyeasycart.co.uk/support/tickets/new">contact support</a> for them to install the new certificate for you.
+                            </p>
+
                             <template v-else>
 
                                 <template v-if="control == 'max'">
@@ -477,7 +482,7 @@
                             <p>The same is true for redirects such as redirects to URLs logged in areas of a site.</p>
                             <p>The above mixed content checking tools can help you track these down too.</p>
                         </li>
-                        <li>
+                        <li v-if="platform != 'rec'">
                             <h3>Setup HTTP to HTTPS redirect</h3>
                             <p>In order to make sure users reach the HTTPS version of your site you can use a 301 redirect and send all requests to the HTTPS version.</p>
 
@@ -518,6 +523,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                             <p v-if="platform == 'drupal'">To set an entire Drupal site to HTTPS no config changes are needed, but to support partial site HTTPS Drupal may require a config change or installation of the <a rel="noopener" target="_blank" href="https://www.drupal.org/project/securelogin">Secure Login</a> module. There's more details on this <a rel="noopener" target="_blank" href="https://www.drupal.org/https-information">here</a>.</p>
                             <p v-if="platform == 'magento'">In Magento > Admin > System > Configuration > General > Web > Secure > Select Yes for "Use Secure URLs in Frontend" &amp; "Use Secure URLs in Admin"</p>
                             <p v-if="platform == 'shopify'">In Shopfiy > Admin > Online Store > Domains > SSL certificates > click "Activate SSL certificates"</p>
+                            <p v-if="platform == 'rec'">In REC > Admin > Site Settings > Security > click to "Use SSL" and for entire site HTTPS also tick "Use SSL Everywhere", we'll come back to the 3rd setting later on.</p>
                             <p v-if="platform == '' || platform == 'php'">Check if your platform/site has a settings area for the default URL or a switch for using SSL.</p>
                         </li>
                         <li>
@@ -528,7 +534,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                         <li>
                             <h3>Update any canonical &amp; og:url references</h3>
                             <p>Often sites use canonical links in the <code>&lt;head&gt;</code> of pages to point to the correct URL for a page, e.g. if multiple URL's reach the same page in your site these are important. It's worth checking if your site uses these that it points to the HTTPS version.</p>
-                            <p>At the same time you should in the <code>&lt;meta&gt;</code> of your site</p>
+                            <p>At the same time you should check the <code>&lt;meta&gt;</code> of your site.</p>
                             <p>Most times site that use these are using a platform that auto generates them, so if you check just a couple pages you should be safe that this will be ok on all pages.</p>
                         </li>
                         <li>
@@ -575,8 +581,8 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
 
                             <p v-if="platform == 'wordpress'">The Really Simple SSL WordPress plugin mentioned above handles setting this up for you.</p>
                             <p v-if="platform == 'drupal'">Drupal can offer this via the <aa rel="noopener" target="_blank" href="https://www.drupal.org/project/seckit">Security Kit</a> module.</p>
-
-                            <p v-if="hosting == 'nginx'">
+                            <p v-if="platform == 'rec'">You can enable this in REC by ticking the "Use Strict Security" in Site Settings.</p>
+                            <p v-else-if="hosting == 'nginx'">
                             Inside your nginx conf file, add the following inside the server block:<code>
 add_header Strict-Transport-Security "max-age=15768000;";</code>
                             </p>

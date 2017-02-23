@@ -15,6 +15,7 @@ new Vue({
                 'drupal': 'Drupal',
                 'magento': 'Magento',
                 'shopify': 'Shopify',
+                'rec': 'REC',
                 'php': 'Custom PHP',
                 '': 'Other / Unknown'
             },
