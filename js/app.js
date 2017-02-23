@@ -10,8 +10,9 @@ new Vue({
         // available options for above data
         options: {
             platform: {
-                'wordpress': 'Wordpress',
+                'wordpress': 'WordPress',
                 'joomla': 'Joomla',
+                'drupal': 'Drupal',
                 'magento': 'Magento',
                 'shopify': 'Shopify',
                 'php': 'Custom PHP',

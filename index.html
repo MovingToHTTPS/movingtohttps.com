@@ -515,6 +515,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                             <h3>Change platform settings</h3>
                             <p v-if="platform == 'wordpress'">In WordPress > Settings > General > Update the "WordPress Address (URL)" and "Site Address (URL)" to be https:// instead of http://</p>
                             <p v-if="platform == 'joomla'">In Joomla > System > Global Configuration > Server > Force SSL > Select Entire Site</p>
+                            <p v-if="platform == 'drupal'">To set an entire Drupal site to HTTPS no config changes are needed, but to support partial site HTTPS Drupal may require a config change or installation of the <a rel="noopener" target="_blank" href="https://www.drupal.org/project/securelogin">Secure Login</a> module. There's more details on this <a rel="noopener" target="_blank" href="https://www.drupal.org/https-information">here</a>.</p>
                             <p v-if="platform == 'magento'">In Magento > Admin > System > Configuration > General > Web > Secure > Select Yes for "Use Secure URLs in Frontend" &amp; "Use Secure URLs in Admin"</p>
                             <p v-if="platform == 'shopify'">In Shopfiy > Admin > Online Store > Domains > SSL certificates > click "Activate SSL certificates"</p>
                             <p v-if="platform == '' || platform == 'php'">Check if your platform/site has a settings area for the default URL or a switch for using SSL.</p>
@@ -573,6 +574,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                             <p>All that's needed for this is to add the "Strict-Transport-Security" to your site with a max age set to 6 months in seconds (15768000)</p>
 
                             <p v-if="platform == 'wordpress'">The Really Simple SSL WordPress plugin mentioned above handles setting this up for you.</p>
+                            <p v-if="platform == 'drupal'">Drupal can offer this via the <aa rel="noopener" target="_blank" href="https://www.drupal.org/project/seckit">Security Kit</a> module.</p>
 
                             <p v-if="hosting == 'nginx'">
                             Inside your nginx conf file, add the following inside the server block:<code>
