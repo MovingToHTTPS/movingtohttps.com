@@ -649,6 +649,12 @@ Header set Strict-Transport-Security "max-age=15768000;"
                             <h3>Enable HTTP/2 support</h3>
                             <p>Now that you're on HTTPS, you can benefit from the speed improvements that come from HTTP/2 on your server and/or CDN. </p>
                         </li>
+                        <li v-if="control == 'max'">
+                            <h3>Consider Brotli compression</h3>
+                            <p>Now you're on HTTPS you could consider Google's new Brotli compession. They have seen <a href="https://students.googleblog.com/2017/02/intern-impact-brotli-compression-for.html?m=1">considerable savings on the play store</a> from implementing it.</p>
+                            <p v-if="hosting == 'nginx'">There's an <a rel="noopener" target="_blank" href="https://github.com/google/ngx_brotli">nginx module</a> that you can compile to add brotli support.</p>
+                            <p v-else>To install on Apache2, you can <a rel="noopener" target="_blank" href="https://ayesh.me/apache-brotli">follow this guide</a>.</p>
+                        </li>
                     </ol>
 
                     <p><small>Disclaimer: This site is provided under the <a rel="noopener" target="_blank" href="https://mit-license.org/">MIT licence</a> and available on <a rel="noopener" target="_blank" href="https://github.com/MovingtoHTTPS">GitHub</a>. All content is provided as a resource to aid migration only. Following it in no way leaves the project or it's authors liable.</small></p>
