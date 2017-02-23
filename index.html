@@ -208,6 +208,9 @@
                             <p>Once you've selected the certificate you're interested in you can move on to start migrating, but consider the following points to make sure you don't miss anything.</p>
 
                             <p v-if="hosting == 'cloudflare'">Cloudflares free certificate covers multiple subdomains but wildcard support is restricted to their Business plan. The certificates also <a rel="noopener" target="_blank" href="https://support.cloudflare.com/hc/en-us/articles/203041594-What-browsers-work-with-CloudFlare-s-SSL-certificates-">do not support</a> old browser/OS combinations such as Windows XP or OS X 10.5 or less.</p>
+
+                            <p>If you use Load Balancers in from of your web servers then you'll later be installing the certificates onto these instead of the actual web servers. Some load balancers such as AWS ELB offer free SSL which could.</p>
+
                         </li>
                         <li v-if="hosting != 'caddy'">
                             <h3>Check to see if your hosting / provider already offers FREE SSL</h3>
@@ -366,6 +369,7 @@
                                     <p>Using the <a rel="noopener" target="_blank" href="https://mozilla.github.io/server-side-tls/ssl-config-generator/?hsts=no">Mozilla SSL Configuration Generator</a> you can build the config needed to add to your server config files. e.g. if using Apache2 you'll need to either change your .htaccess or apache.conf file.</p>
                                     <p>Then upload the certificates to the paths shown in the config, e.g. <code>/path/to/signed_certificate</code></p>
                                     <p>This tool can also add the HSTS (Strict-Transport-Security) header to the config, you could choose to add this now, but we'd advise holding onto that part for now and adding it in later which we will go over later in the guide.</p>
+                                    <p>If you use Load Balancers in front of your site's servers you will likely need to install the SSL certificate on the load balancer instead of each actual web server. </p>
                                 </template>
                                 <template v-else>
                                     <p>Unless your platform allows you to install the certificate, you will need to contact them and ask to install the certificate for you onto the site's server.</p>
