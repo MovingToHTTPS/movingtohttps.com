@@ -127,10 +127,10 @@
                     <!-- Short line showing selected filters -->
                     <p class="guide-introduction">
                         <small v-if="platform">
-                            This guide is for moving {{ platform }} sites<span v-if="hosting"> hosted with {{ hosting }}</span> to HTTPS.
+                            This guide is for moving {{ platformText }} sites<span v-if="hosting"> hosted with {{ hostingText }}</span> to HTTPS.
                         </small>
                         <small v-else-if="hosting">
-                            This guide is for moving sites using {{ hosting }} to HTTPS
+                            This guide is for moving sites using {{ hostingText }} to HTTPS
                         </small>
                         <small class="print-hidden">- Use the above filters to suit your needs.</small>
                     </p>

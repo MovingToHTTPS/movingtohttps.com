@@ -56,6 +56,15 @@ new Vue({
         }
     },
 
+    computed: {
+        platformText: function () {
+            return this.options.platform[this.platform];
+        },
+        hostingText: function () {
+            return this.options.hosting[this.hosting];
+        }
+    },
+
     mounted: function () {
 
         // parse any url params
