@@ -389,6 +389,31 @@
                             <p>Instead, the main ways sites are normally checked are through:</p>
                             <ol>
                                 <li>
+                                    Using a tool to externally crawl over your site at once.
+                                    <br>
+                                    These crawling tools work with any site as they are run externally. Here are some examples:
+                                    <ul>
+                                        <li><a rel="noopener" target="_blank" href="https://httpschecker.net/guides/https-checker">HTTPS Checker</a> is a desktop app (available on Windows, Mac OS X &amp; Ubuntu Linux) to crawl a site for mixed content and related issues.</li>
+                                        <li v-if="control != 'min'"><a rel="noopener" target="_blank" href="https://github.com/bramus/mixed-content-scan">Mixed Content Scan</a> by Bramus is a command line php script that will crawl a given site for mixed content issues.</li>
+                                        <li><a rel="noopener" target="_blank" href="https://www.jitbit.com/sslcheck/">SSL Check</a> by JitBit offers a quick online tool to find mixed content <em>- though is limited to 200 crawled URLs</em>.</li>
+                                    </ul>
+                                </li>
+                                <li v-if="hosting == 'cloudflare'">
+                                    Automatic replacing content live as it's sent from Cloudflare to users browsers with "Automatic HTTPS Rewrites" - This is an experimental new feature inside Cloudflare that replaces links to HTTP resources with HTTPS where possible, though you may still have content that loads over HTTP is a HTTPS version isn't available, but this can certainly ease the pain.
+                                    <ul>
+                                        <li><a rel="noopener" target="_blank" href="https://blog.cloudflare.com/fixing-the-mixed-content-problem-with-automatic-https-rewrites/">Read more here</a></li>
+                                    </ul>
+                                </li>
+                                <li v-if="platform == 'wordpress'">
+                                    There are some WordPress plugins dedicated to HTTPS migration help, these will also assist in the following steps so worth checking them out before continuing.
+                                    <br>
+                                    For WordPress sites, these are usually our recommended way to go, but could be combined with the tools above to be extra safe.
+                                    <ul>
+                                        <li><a rel="noopener" target="_blank" href="https://wordpress.org/plugins/really-simple-ssl/">Really Simple SSL</a></li>
+                                        <li><a rel="noopener" target="_blank" href="https://wordpress.org/plugins/ssl-insecure-content-fixer/">SSL Insecure Content Fixer</a></li>
+                                    </ul>
+                                </li>
+                                <li>
                                     CSP (Content Security Policy) reporting, which is a way to tell browsers to send issue reports back to you as users navigate through your site.
                                     <br>
                                     <template v-if="control == 'min'">
@@ -415,31 +440,6 @@
                                             </li>
                                         </ul>
                                     </template>
-                                </li>
-                                <li>
-                                    Using a tool to externally crawl over your site at once.
-                                    <br>
-                                    These crawling tools work with any site as they are run externally. Here are some examples:
-                                    <ul>
-                                        <li><a rel="noopener" target="_blank" href="https://httpschecker.net/guides/https-checker">HTTPS Checker</a> is a desktop app (available on Windows, Mac OS X &amp; Ubuntu Linux) to crawl a site for mixed content and related issues.</li>
-                                        <li v-if="control != 'min'"><a rel="noopener" target="_blank" href="https://github.com/bramus/mixed-content-scan">Mixed Content Scan</a> by Bramus is a command line php script that will crawl a given site for mixed content issues.</li>
-                                        <li><a rel="noopener" target="_blank" href="https://www.jitbit.com/sslcheck/">SSL Check</a> by JitBit offers a quick online tool to find mixed content <em>- though is limited to 200 crawled URLs</em>.</li>
-                                    </ul>
-                                </li>
-                                <li v-if="hosting == 'cloudflare'">
-                                    Automatic replacing content live as it's sent from Cloudflare to users browsers with "Automatic HTTPS Rewrites" - This is an experimental new feature inside Cloudflare that replaces links to HTTP resources with HTTPS where possible, though you may still have content that loads over HTTP is a HTTPS version isn't available, but this can certainly ease the pain.
-                                    <ul>
-                                        <li><a rel="noopener" target="_blank" href="https://blog.cloudflare.com/fixing-the-mixed-content-problem-with-automatic-https-rewrites/">Read more here</a></li>
-                                    </ul>
-                                </li>
-                                <li v-if="platform == 'wordpress'">
-                                    There are some WordPress plugins dedicated to HTTPS migration help, these will also assist in the following steps so worth checking them out before continuing.
-                                    <br>
-                                    For WordPress sites, these are usually our recommended way to go, but could be combined with the tools above to be extra safe.
-                                    <ul>
-                                        <li><a rel="noopener" target="_blank" href="https://wordpress.org/plugins/really-simple-ssl/">Really Simple SSL</a></li>
-                                        <li><a rel="noopener" target="_blank" href="https://wordpress.org/plugins/ssl-insecure-content-fixer/">SSL Insecure Content Fixer</a></li>
-                                    </ul>
                                 </li>
                             </ol>
 
