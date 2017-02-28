@@ -220,7 +220,7 @@
 
                             <p v-if="hosting == 'cloudflare'">Cloudflares free certificate covers multiple subdomains but wildcard support is restricted to their Business plan. The certificates also <a rel="noopener" target="_blank" href="https://support.cloudflare.com/hc/en-us/articles/203041594-What-browsers-work-with-CloudFlare-s-SSL-certificates-">do not support</a> old browser/OS combinations such as Windows XP or OS X 10.5 or less.</p>
 
-                            <p>If you use Load Balancers in from of your web servers then you'll later be installing the certificates onto these instead of the actual web servers. Some load balancers such as AWS ELB offer free SSL which could.</p>
+                            <p>If you use Load Balancers in front of your web servers then you'll later be installing the certificates onto these instead of the actual web servers. Some load balancers such as AWS ELB offer free SSL which could.</p>
 
                         </li>
                         <li v-if="hosting != 'caddy'">
