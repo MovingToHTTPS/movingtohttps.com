@@ -14,6 +14,7 @@ new Vue({
                 'joomla': 'Joomla',
                 'drupal': 'Drupal',
                 'wix': 'Wix',
+                'weebly': 'Weebly',
                 'magento': 'Magento',
                 'shopify': 'Shopify',
                 'rec': 'REC',
