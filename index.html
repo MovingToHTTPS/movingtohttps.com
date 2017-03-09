@@ -397,6 +397,7 @@
                             <p>However, if you do see an error message, the message may point you in the right direction, but <a rel="noopener" target="_blank" href="https://www.ssllabs.com/ssltest/">SSLLabs</a> can be used here to check and diagnose the issue.</p>
                             <p v-if="control == 'max'"><em>If needed, <a rel="noopener" target="_blank" href="https://maulwuff.de/research/ssl-debugging.html">this article</a> can be very useful in debugging typical SSL issues, though the post is fairly technical.</em></p>
                             <p>You hopefully won't see a full page error screen, though you may find you don't have a green lock / HTTPS indicator in the URL bar. Which brings us onto the next subject, fixing insecure / mixed content issues.</p>
+                            <p if="platform == 'rec'">On REC if the site does not load over HTTPS at first, check Admin > Redirect Manager for any redirects that may have pointed away from HTTPS.</p>
                         </li>
                         <li>
                             <h3>Find mixed content</h3>
@@ -471,6 +472,9 @@
 
                             <p v-if="platform == 'wordpress'">
                                 The above WordPress plugins can help fix issues, the following will help with areas you need to manually change though.
+                            </p>
+                            <p v-if="platform == 'rec'">
+                                To fix any issues found in Blog post older reference blocks run: Admin > Blog Settings > "Fix Mixed Content Reference Blocks".
                             </p>
 
                             <p>The essence of fixing mixed content issues is to replace links to HTTP resources with HTTPS.</p>
