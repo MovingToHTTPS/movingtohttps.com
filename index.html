@@ -227,6 +227,7 @@
                             <h3>Check to see if your hosting / provider already offers FREE SSL</h3>
                             <p>Though this is not yet the norm, as HTTPS becomes the default for a lot of sites, providers are starting to offer SSL included with hosting packages. It's worth contacting them to be sure.</p>
                             <p v-if="platform == 'rec'">REC offers both free and paid SSL via Let's Encrypt &amp; Cloudflare.</p>
+                            <p v-if="platform == 'wix'">Wix offer SSL on all sites though currently do not allow you to install custom certificates, but you can also use Cloudflare to provide this.</p>
                         </li>
                         <li>
                             <h3>Do you have a test site?</h3>
@@ -539,6 +540,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                             <h3>Change platform settings</h3>
                             <p v-if="platform == 'wordpress'">In WordPress > Settings > General > Update the "WordPress Address (URL)" and "Site Address (URL)" to be https:// instead of http://</p>
                             <p v-if="platform == 'joomla'">In Joomla > System > Global Configuration > Server > Force SSL > Select Entire Site</p>
+                            <p v-if="platform == 'wix'">In Wix > Manage Site > Click Manage next to SSL Certificate > Turn on SSL</p>
                             <p v-if="platform == 'drupal'">To set an entire Drupal site to HTTPS no config changes are needed, but to support partial site HTTPS Drupal may require a config change or installation of the <a rel="noopener" target="_blank" href="https://www.drupal.org/project/securelogin">Secure Login</a> module. There's more details on this <a rel="noopener" target="_blank" href="https://www.drupal.org/https-information">here</a>.</p>
                             <p v-if="platform == 'magento'">In Magento > Admin > System > Configuration > General > Web > Secure > Select Yes for "Use Secure URLs in Frontend" &amp; "Use Secure URLs in Admin"</p>
                             <p v-if="platform == 'shopify'">In Shopfiy > Admin > Online Store > Domains > SSL certificates > click "Activate SSL certificates"</p>

@@ -13,6 +13,7 @@ new Vue({
                 'wordpress': 'WordPress',
                 'joomla': 'Joomla',
                 'drupal': 'Drupal',
+                'wix': 'Wix',
                 'magento': 'Magento',
                 'shopify': 'Shopify',
                 'rec': 'REC',
