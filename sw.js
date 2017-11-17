@@ -11,7 +11,7 @@ self.addEventListener('install', e => {
                 '/',
                 '/images/owl.svg',
                 '/css/app.css',
-                '/js/app.js',
+                '/js/app.js?v=2',
                 'https://fonts.googleapis.com/css?family=Bungee+Shade|Noto+Sans:400,400i,700,700i',
                 'https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css',
                 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
