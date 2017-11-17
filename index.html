@@ -543,6 +543,69 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                             <p>If you're site redirects non-www traffic to the www version, or vise versa, make sure to update these redirects too so you don't end up with double or more redirect steps.</p>
 
                             </template>
+                            <p v-if="platform == 'php'">In PHP you could do this like so:
+<code>
+if ($_SERVER['HTTPS'] != 'on') {
+    header('Location:' . 'https://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI']);
+    exit;
+}
+</code>
+                            </p>
+                            <p v-if="platform == '.net'">In ASP.NET you could do this in your web.config file like so:
+<code>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;configuration&gt;
+    &lt;system.webServer&gt;
+        &lt;rewrite&gt;
+            &lt;rules&gt;
+                &lt;rule name="HTTP to HTTPS redirect" stopProcessing="true"&gt;
+                    &lt;match url="(.*)" /&gt;
+                    &lt;conditions&gt;
+                        &lt;add input="{HTTPS}" pattern="off" ignoreCase="true" /&gt;
+                    &lt;/conditions&gt;
+                    &lt;action type="Redirect" url="https://{HTTP_HOST}/{R:1}"
+                        redirectType="Permanent" /&gt;
+                &lt;/rule&gt;
+            &lt;/rules&gt;
+        &lt;/rewrite&gt;
+    &lt;/system.webServer&gt;
+&lt;/configuration&gt;
+</code>
+                                <em>Ref: https://www.hanselman.com/blog/HowToEnableHTTPStrictTransportSecurityHSTSInIIS7.aspx</em>
+                            </p>
+                            <p v-if="platform == 'node-express'">In Node.js using express.js you could setup middleware to detect if the request is secure and if not then redirect to the HTTPS version. Or you could use pre-built package such as `express-http-to-https` like so:
+<code>
+npm install --save express-http-to-https
+</code>
+and then to use it like so:
+<code>
+app.use(redirectToHTTPS());
+</code>
+                            </p>
+                            <p v-if="platform == 'python-flask'">In Python Flask you could do this like so:
+<code>
+@app.before_request
+def before_request():
+    if request.url.startswith('http://'):
+        url = request.url.replace('http://', 'https://', 1)
+        code = 301
+        return redirect(url, code=code)
+</code>
+                            <em>Ref: https://stackoverflow.com/questions/32237379/python-flask-redirect-to-https-from-http#answer-32238093</em>
+                            </p>
+                            <p v-if="platform == 'ruby-on-rails'">In Ruby on Rails you could do this like so:
+<code>
+# config/environments/production.rb
+Rails.application.configure do
+    # [..]
+
+    # Force all access to the app over SSL, use Strict-Transport-Security,
+    # and use secure cookies.
+    config.force_ssl = true
+end
+</code>
+                            <em>Ref: https://stackoverflow.com/questions/1662262/rails-redirect-with-https#answer-26382183</em>
+                            </p>
 
                         </li>
                         <li>
@@ -556,7 +619,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                             <p v-if="platform == 'shopify'">In Shopfiy > Admin > Online Store > Domains > SSL certificates > click "Activate SSL certificates"</p>
                             <p v-if="platform == 'rec'">In REC > Admin > Site Settings > Security > click to "Use SSL" and for entire site HTTPS also tick "Use SSL Everywhere", we'll come back to the 3rd setting later on.</p>
                             <p v-if="platform == 'github'">In Github > Find your repository page > Settings > Find the "GitHub Pages" section &amp; select "Enforce HTTPS".</p>
-                            <p v-if="platform == '' || platform == 'php'">Check if your platform/site has a settings area for the default URL or a switch for using SSL.</p>
+                            <p v-if="platform == '' || platform == 'php' || platform == '.net' || platform == 'node-express' || platform == 'python-flask' || platform == 'ruby-on-rails'">Check if your platform/site has a settings area for the default URL or a switch for using SSL.</p>
                         </li>
                         <li>
                             <h3>Check common files use HTTPS</h3>

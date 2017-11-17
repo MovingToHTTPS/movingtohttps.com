@@ -19,7 +19,11 @@ new Vue({
                 'shopify': 'Shopify',
                 'rec': 'REC',
                 'github': 'GitHub Pages / Jekyll',
-                'php': 'Custom PHP',
+                'php': 'PHP',
+                '.net': 'ASP.NET',
+                'node-express': 'Node.js Express',
+                'python-flask': 'Python Flask',
+                'ruby-on-rails': 'Ruby on Rails',
                 '': 'Other / Unknown'
             },
             hosting: {
