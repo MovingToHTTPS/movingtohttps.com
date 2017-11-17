@@ -147,6 +147,10 @@
                         <small class="print-hidden">- Use the above filters to suit your needs.</small>
                     </p>
 
+                    <!-- if github, it's easiest to use Cloudflare -->
+                    <p v-if="platform=='github'">For GitHub Pages with custom domains, it's easiest to use Cloudflare to handle SSL. It's free &amp; simple to setup. <a rel="noopener" target="_blank" href="https://hackernoon.com/set-up-ssl-on-github-pages-with-custom-domains-for-free-a576bdf51bc">More info here</a>, then follow the rest of this guide for further setup.
+                        <br>However if you don't use custom domains, <a rel="noopener" target="_blank" href="https://help.github.com/articles/securing-your-github-pages-site-with-https/">GitHub has a guide for this here</a>.</p>
+
                     <!-- Outline -->
                     <a class="toggle-section print-hidden" @click="showArea.outline = !showArea.outline">[Toggle]</a>
                     <h2 v-bind:class="showArea.outline ? '' : 'toggle-hidden-section print-hidden'">Outline</h2>
@@ -452,12 +456,12 @@
                                         CSP violations can be sent back to a central server for you to monitor them and receive alerts, here's a few examples:
                                         <ul>
                                             <li>
-                                                <a rel="noopener" target="_blank" href="https://report-uri.io/">Report URI</a>
-                                                - Offers free hosted CSP collection, great graphs and tools to build a CSP header.
+                                                <a rel="noopener" target="_blank" href="https://httpschecker.net/guides/https-reporter">HTTPS Reporter</a>
+                                                - Hosted CSP endpoints specifically for handling mixed content. They provide you with a prebuilt CSP header designed just to catch mixed content issues ready to set up on your site. Great graphs of reports over time &amp; more.
                                             </li>
                                             <li>
-                                                <a rel="noopener" target="_blank" href="https://httpschecker.net/guides/https-reporter">HTTPS Reporter</a>
-                                                - Paid CSP hosting, provides you with a prebuilt CSP header designed just to catch mixed content issues ready to set up on your site.
+                                                <a rel="noopener" target="_blank" href="https://report-uri.io/">Report URI</a>
+                                                - Also offers hosted CSP collection + a good selection of tools to build more complex CSP headers.
                                             </li>
                                             <li>
                                                 <a rel="noopener" target="_blank" href="https://github.com/c0nrad/caspr">Caspr the friendly CSP Report Aggregator</a> - <em>Though no longer under active development</em>, this is an open source CSP service you can run on Heroku.
@@ -670,7 +674,7 @@ Header set Strict-Transport-Security "max-age=15768000;"
                     </ol>
 
                     <p><small>Disclaimer: This site is provided under the <a rel="noopener" target="_blank" href="https://mit-license.org/">MIT licence</a> and available on <a rel="noopener" target="_blank" href="https://github.com/MovingtoHTTPS">GitHub</a>. All content is provided as a resource to aid migration only. Following it in no way leaves the project or it's authors liable.</small></p>
-                    <p><small>Found an issue or want to contribute changes? <a rel="noopener" target="_blank" href="https://github.com/MovingToHTTPS/movingtohttps.com">Fork us on Github</a> or <a rel="noopener" target="_blank" href="https://github.com/MovingToHTTPS/movingtohttps.com/issues">open an issue</a>.</small></p>
+                    <p><small>Found an issue or want to contribute changes? <a rel="noopener" target="_blank" href="https://github.com/MovingToHTTPS/movingtohttps.com">Fork us on GitHub</a> or <a rel="noopener" target="_blank" href="https://github.com/MovingToHTTPS/movingtohttps.com/issues">open an issue</a>.</small></p>
 
                 </main>
 

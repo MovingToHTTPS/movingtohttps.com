@@ -18,6 +18,7 @@ new Vue({
                 'magento': 'Magento',
                 'shopify': 'Shopify',
                 'rec': 'REC',
+                'github': 'GitHub Pages / Jekyll',
                 'php': 'Custom PHP',
                 '': 'Other / Unknown'
             },
@@ -56,6 +57,12 @@ new Vue({
                 window.ga && window.ga('send', 'pageview', url);
             },
             deep: true
+        },
+        // detect github & default hosting to cloudflare
+        platform: function (val) {
+            if (val == 'github') {
+                this.hosting = 'cloudflare';
+            }
         }
     },
 
