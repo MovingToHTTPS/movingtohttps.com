@@ -555,6 +555,7 @@ RewriteRule ^(.*)$ https://site.com/$1 [R=301,L]</code>
                             <p v-if="platform == 'magento'">In Magento > Admin > System > Configuration > General > Web > Secure > Select Yes for "Use Secure URLs in Frontend" &amp; "Use Secure URLs in Admin"</p>
                             <p v-if="platform == 'shopify'">In Shopfiy > Admin > Online Store > Domains > SSL certificates > click "Activate SSL certificates"</p>
                             <p v-if="platform == 'rec'">In REC > Admin > Site Settings > Security > click to "Use SSL" and for entire site HTTPS also tick "Use SSL Everywhere", we'll come back to the 3rd setting later on.</p>
+                            <p v-if="platform == 'github'">In Github > Find your repository page > Settings > Find the "GitHub Pages" section &amp; select "Enforce HTTPS".</p>
                             <p v-if="platform == '' || platform == 'php'">Check if your platform/site has a settings area for the default URL or a switch for using SSL.</p>
                         </li>
                         <li>
