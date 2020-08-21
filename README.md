@@ -31,6 +31,9 @@ Interested to help in other ways? Get the word out by sharing the project. [#mov
 
 This project is released under the [MIT License](https://mit-license.org/).
 
+You can also help support the hosting and development of this project with coffee power:
+<a href="https://www.buymeacoffee.com/stilliard" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 51px !important;width: 217px !important;" ></a>
+
 ## FAQ
 
 **Why build another guide?** - Most the guides out there were great but were platform or provider specific. Also they often made assumptions about the users level of skill / control over the site.
