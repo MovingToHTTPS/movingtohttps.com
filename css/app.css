@@ -255,8 +255,7 @@ footer {
     .filters,
     .nav,
     .footer,
-    .skiptranslate,
-    .addthis_inline_share_toolbox { display: none; }
+    .skiptranslate { display: none; }
 
     .block {
         /* remove shadow areas */
