@@ -210,7 +210,7 @@
                         </li>
                         <li v-if="hosting != 'caddy'">
                             <h3>Check to see if your hosting / provider already offers FREE SSL</h3>
-                            <p>Though this is not yet the norm, as HTTPS becomes the default for a lot of sites, providers are starting to offer SSL included with hosting packages. It's worth contacting them to be sure.</p>
+                            <p>Though this is not yet the norm, as HTTPS becomes the default for a lot of sites, providers are starting to offer SSL included with hosting packages. You can check whether your hosting provider offers free SSL certificates <a rel="noopener" target="_blank" href="https://certbot.eff.org/hosting_providers">here</a>. It's worth contacting them to be sure.</p>
                             <p v-if="platform == 'rec'">REC offers both free and paid SSL via Let's Encrypt &amp; Cloudflare.</p>
                             <p v-if="platform == 'wix'">Wix offer SSL on all sites though currently do not allow you to install custom certificates, but you can also use Cloudflare to provide this.</p>
                             <p v-if="platform == 'weebly'">
