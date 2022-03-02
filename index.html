@@ -368,7 +368,8 @@
 
                                 <template v-if="control == 'max'">
                                     <p>Using the <a rel="noopener" target="_blank" href="https://mozilla.github.io/server-side-tls/ssl-config-generator/?hsts=no">Mozilla SSL Configuration Generator</a> you can build the config needed to add to your server config files. e.g. if using Apache2 you'll need to either change your .htaccess or apache.conf file.</p>
-                                    <p>Then upload the certificates to the paths shown in the config, e.g. <code>/path/to/signed_certificate</code></p>
+                                    <p>If you used <a rel="noopener" target="_blank" href="https://certbot.eff.org/">Certbot</a> or anothe ACME client and didn't chose automatic webserver configuration, change the paths in your webserver config to those printed by Certbot or your ACME client. Certbot usually stores certificates in <code>/etc/letsencrypt/live/</code>.</p>
+                                    <p>If you obtained your certificate in another way, upload it to your server. It's common to store certificates in <code>/etc/ssl/</code>. Make sure that your private key isn't accessible publicly and can't be read by other users. Then change the paths in your webserver config to point to it.</p>
                                     <p>This tool can also add the HSTS (Strict-Transport-Security) header to the config, you could choose to add this now, but we'd advise holding onto that part for now and adding it in later which we will go over later in the guide.</p>
                                     <p>If you use Load Balancers in front of your site's servers you will likely need to install the SSL certificate on the load balancer instead of each actual web server. </p>
                                 </template>
